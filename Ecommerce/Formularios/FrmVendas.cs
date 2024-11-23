@@ -44,7 +44,7 @@ namespace Ecommerce.Formularios
         // Atualiza a lista de vendas ao fechar o formulário de edição ou cadastro
         private void Fechou_Venda_FormClosed(object sender, FormClosedEventArgs e)
         {
-          //  dados = dao.ObterVendas();
+            // dados = dao.ObterVendas();
             dtGridVenda.DataSource = dados;
         }
 

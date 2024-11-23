@@ -14,10 +14,20 @@ namespace Ecommerce.Formularios.editar
     {
         public FrmEditarProdutos()
         {
-            InitializeComponent();
+            
         }
 
         private void FrmEditarProdutos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Salvar_Click(object sender, EventArgs e)
         {
 
         }

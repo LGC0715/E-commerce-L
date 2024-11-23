@@ -9,12 +9,12 @@ namespace Ecommerce.Entidade
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        public float Preco { get; set; }
+        public float PrecoUnitario { get; set; }
         public int Estoque { get; set; }
 
         public object[] Linha()
         {
-            return new object[] { Id, Nome, Descricao, Preco, Estoque };
+            return new object[] { Id, Nome, Descricao, PrecoUnitario, Estoque };
         }
     }
 
@@ -37,7 +37,7 @@ namespace Ecommerce.Entidade
                 SqlCommand comando = new SqlCommand(query, Conexao);
                 comando.Parameters.Add(new SqlParameter("@nome", produto.Nome));
                 comando.Parameters.Add(new SqlParameter("@descricao", produto.Descricao));
-                comando.Parameters.Add(new SqlParameter("@preco", produto.Preco));
+                comando.Parameters.Add(new SqlParameter("@preco", produto.PrecoUnitario));
                 comando.Parameters.Add(new SqlParameter("@estoque", produto.Estoque));
                 comando.ExecuteNonQuery();
                 Conexao.Close();
@@ -65,7 +65,7 @@ namespace Ecommerce.Entidade
                             Id = Convert.ToInt32(leitura["Id"]),
                             Nome = leitura["Nome"].ToString(),
                             Descricao = leitura["Descricao"].ToString(),
-                            Preco = float.Parse(leitura["Preco"].ToString()),
+                            PrecoUnitario = float.Parse(leitura["Preco"].ToString()),
                             Estoque = Convert.ToInt32(leitura["Estoque"])
                         };
                         dt.Rows.Add(p.Linha());
@@ -105,7 +105,7 @@ namespace Ecommerce.Entidade
                             Id = Convert.ToInt32(leitura["Id"]),
                             Nome = leitura["Nome"].ToString(),
                             Descricao = leitura["Descricao"].ToString(),
-                            Preco = float.Parse(leitura["Preco"].ToString()),
+                            PrecoUnitario = float.Parse(leitura["Preco"].ToString()),
                             Estoque = Convert.ToInt32(leitura["Estoque"])
                         };
                         dt.Rows.Add(p.Linha());
@@ -124,7 +124,7 @@ namespace Ecommerce.Entidade
                 comando.Parameters.Add(new SqlParameter("@id", produto.Id));
                 comando.Parameters.Add(new SqlParameter("@nome", produto.Nome));
                 comando.Parameters.Add(new SqlParameter("@descricao", produto.Descricao));
-                comando.Parameters.Add(new SqlParameter("@preco", produto.Preco));
+                comando.Parameters.Add(new SqlParameter("@preco", produto.PrecoUnitario));
                 comando.Parameters.Add(new SqlParameter("@estoque", produto.Estoque));
                 comando.ExecuteNonQuery();
                 Conexao.Close();

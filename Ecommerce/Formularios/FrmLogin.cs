@@ -7,14 +7,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ecommerce;
+using MapaSala.Classes;
 
-namespace Ecommerce.Formularios
+namespace MapaSala
 {
-    public partial class FrmLogin : Form
+    public partial class frmLogin : Form
     {
-        public FrmLogin()
+        private Login login;
+        public frmLogin()
         {
             InitializeComponent();
+            login = new Login();
+        }
+
+
+        private void FecharForm(object sender, FormClosedEventArgs e)
+        {
+            Visible = true;
+        }
+
+        private void btnEntrar_Click_1(object sender, EventArgs e)
+        {
+            login.Usuario = txtLogin.Text;
+            login.Senha = txtSenha.Text;
+            if (login.Logar())
+            {
+                FrmPrincipal p = new FrmPrincipal();
+                p.FormClosed += FecharForm;
+                this.Hide();
+                p.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usuário e senha inválidos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

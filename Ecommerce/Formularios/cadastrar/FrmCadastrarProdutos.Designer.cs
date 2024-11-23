@@ -45,64 +45,65 @@ namespace Ecommerce.Formularios.cadastrar
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(60, 63);
+            this.label4.Location = new System.Drawing.Point(80, 78);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.Size = new System.Drawing.Size(55, 16);
             this.label4.TabIndex = 44;
             this.label4.Text = "label_id";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 63);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(49, 78);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(16, 13);
+            this.label3.Size = new System.Drawing.Size(18, 16);
             this.label3.TabIndex = 42;
             this.label3.Text = "Id";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 106);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(44, 130);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 41;
             this.label2.Text = "Nome";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 169);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(43, 208);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(69, 16);
             this.label1.TabIndex = 40;
             this.label1.Text = "Descrição";
             // 
             // txtSigla
             // 
-            this.txtSigla.Location = new System.Drawing.Point(36, 189);
-            this.txtSigla.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtSigla.Location = new System.Drawing.Point(48, 233);
+            this.txtSigla.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtSigla.Name = "txtSigla";
-            this.txtSigla.Size = new System.Drawing.Size(184, 20);
+            this.txtSigla.Size = new System.Drawing.Size(244, 22);
             this.txtSigla.TabIndex = 39;
             // 
             // txtNomeDisciplina
             // 
-            this.txtNomeDisciplina.Location = new System.Drawing.Point(37, 126);
-            this.txtNomeDisciplina.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtNomeDisciplina.Location = new System.Drawing.Point(49, 155);
+            this.txtNomeDisciplina.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtNomeDisciplina.Name = "txtNomeDisciplina";
-            this.txtNomeDisciplina.Size = new System.Drawing.Size(183, 20);
+            this.txtNomeDisciplina.Size = new System.Drawing.Size(243, 22);
             this.txtNomeDisciplina.TabIndex = 38;
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(31, 350);
-            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnSalvar.Location = new System.Drawing.Point(41, 431);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(180, 27);
+            this.btnSalvar.Size = new System.Drawing.Size(240, 33);
             this.btnSalvar.TabIndex = 37;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -110,44 +111,44 @@ namespace Ecommerce.Formularios.cadastrar
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 232);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(44, 286);
+            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(43, 16);
             this.label5.TabIndex = 46;
             this.label5.Text = "Preço";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(37, 252);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBox1.Location = new System.Drawing.Point(49, 310);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 20);
+            this.textBox1.Size = new System.Drawing.Size(244, 22);
             this.textBox1.TabIndex = 45;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 288);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(43, 355);
+            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.Size = new System.Drawing.Size(57, 16);
             this.label6.TabIndex = 48;
             this.label6.Text = "Estoque";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(31, 304);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBox2.Location = new System.Drawing.Point(48, 375);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(184, 20);
+            this.textBox2.Size = new System.Drawing.Size(244, 22);
             this.textBox2.TabIndex = 47;
             // 
             // FrmCadastrarProdutos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(241, 450);
+            this.ClientSize = new System.Drawing.Size(333, 507);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label5);
@@ -159,6 +160,7 @@ namespace Ecommerce.Formularios.cadastrar
             this.Controls.Add(this.txtSigla);
             this.Controls.Add(this.txtNomeDisciplina);
             this.Controls.Add(this.btnSalvar);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmCadastrarProdutos";
             this.Text = "FrmCadastrarProdutos";
             this.Load += new System.EventHandler(this.FrmCadastrarProdutos_Load);

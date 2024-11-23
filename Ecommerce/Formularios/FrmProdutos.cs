@@ -37,8 +37,19 @@ namespace Ecommerce.Formularios
         private void btnadd_disc_Click(object sender, EventArgs e)
         {
 
-        }
+            FrmCadastrarProdutos cadastrar = new FrmCadastrarProdutos();
 
+            // Inscreve-se no evento de fechamento do formulário
+            cadastrar.FormClosed += Fechou_Produto_FormClosed;
+
+            // Abre o formulário de cadastro como modal
+            cadastrar.ShowDialog();
+        }
+        private void Fechou_Produto_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // dados = dao.ObterVendas();
+            dtGridProdutos.DataSource = dados;
+        }
         private void txtpesquisa_TextChanged(object sender, EventArgs e)
         {
           //  dtGridProdutos.DataSource = dao.Pesquisar(txtpesquisa.Text);
@@ -54,7 +65,7 @@ namespace Ecommerce.Formularios
               FrmEditarProdutos editar = new FrmEditarProdutos();
 
                 // Inscreve-se no evento
-              //  editar.FormClosed += Fechou_Editar_FormClosed;
+              // editar.FormClosed += Fechou_Editar_FormClosed;
 
                 editar.ShowDialog(); // Abre o formulário como um diálogo modal
 
