@@ -63,5 +63,10 @@ namespace Ecommerce.Formularios.cadastrar
             txtDesconto.Text = "";
             
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

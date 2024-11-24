@@ -48,5 +48,10 @@ namespace MapaSala
         {
 
         }
+
+        private void salvar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

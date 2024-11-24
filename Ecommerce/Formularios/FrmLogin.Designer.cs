@@ -33,7 +33,7 @@ namespace MapaSala
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.Label();
-            this.salvar = new System.Windows.Forms.Button();
+            this.btn_Entrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox2
@@ -76,22 +76,24 @@ namespace MapaSala
             this.txtLogin.TabIndex = 33;
             this.txtLogin.Text = "LOGIN";
             // 
-            // salvar
+            // btn_Entrar
             // 
-            this.salvar.Location = new System.Drawing.Point(66, 301);
-            this.salvar.Name = "salvar";
-            this.salvar.Size = new System.Drawing.Size(158, 33);
-            this.salvar.TabIndex = 46;
-            this.salvar.Text = "salvar";
-            this.salvar.UseVisualStyleBackColor = true;
+            this.btn_Entrar.Location = new System.Drawing.Point(66, 301);
+            this.btn_Entrar.Name = "btn_Entrar";
+            this.btn_Entrar.Size = new System.Drawing.Size(158, 33);
+            this.btn_Entrar.TabIndex = 46;
+            this.btn_Entrar.Text = "Entrar";
+            this.btn_Entrar.UseVisualStyleBackColor = true;
+            this.btn_Entrar.Click += new System.EventHandler(this.salvar_Click);
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Ecommerce.Properties.Resources.tela_login;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.salvar);
+            this.Controls.Add(this.btn_Entrar);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtSenha);
@@ -110,6 +112,6 @@ namespace MapaSala
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label txtSenha;
         private System.Windows.Forms.Label txtLogin;
-        private System.Windows.Forms.Button salvar;
+        private System.Windows.Forms.Button btn_Entrar;
     }
 }

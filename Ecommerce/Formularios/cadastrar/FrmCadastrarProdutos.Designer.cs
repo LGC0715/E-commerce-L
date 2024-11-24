@@ -29,6 +29,7 @@ namespace Ecommerce.Formularios.cadastrar
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,6 +41,13 @@ namespace Ecommerce.Formularios.cadastrar
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cADASTRODEPRODUTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.cADASTRODEPRODUTOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -144,11 +152,55 @@ namespace Ecommerce.Formularios.cadastrar
             this.textBox2.Size = new System.Drawing.Size(244, 22);
             this.textBox2.TabIndex = 47;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 485);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(333, 22);
+            this.statusStrip1.TabIndex = 49;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cADASTRODEPRODUTOSToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(257, 28);
+            // 
+            // cADASTRODEPRODUTOSToolStripMenuItem
+            // 
+            this.cADASTRODEPRODUTOSToolStripMenuItem.Name = "cADASTRODEPRODUTOSToolStripMenuItem";
+            this.cADASTRODEPRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.cADASTRODEPRODUTOSToolStripMenuItem.Text = "CADASTRO DE PRODUTOS";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cADASTRODEPRODUTOSToolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(333, 30);
+            this.menuStrip1.TabIndex = 51;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // cADASTRODEPRODUTOSToolStripMenuItem1
+            // 
+            this.cADASTRODEPRODUTOSToolStripMenuItem1.Name = "cADASTRODEPRODUTOSToolStripMenuItem1";
+            this.cADASTRODEPRODUTOSToolStripMenuItem1.Size = new System.Drawing.Size(201, 26);
+            this.cADASTRODEPRODUTOSToolStripMenuItem1.Text = "CADASTRO DE PRODUTOS";
+            this.cADASTRODEPRODUTOSToolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FrmCadastrarProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(333, 507);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label5);
@@ -160,10 +212,14 @@ namespace Ecommerce.Formularios.cadastrar
             this.Controls.Add(this.txtSigla);
             this.Controls.Add(this.txtNomeDisciplina);
             this.Controls.Add(this.btnSalvar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCadastrarProdutos";
             this.Text = "FrmCadastrarProdutos";
             this.Load += new System.EventHandler(this.FrmCadastrarProdutos_Load);
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +238,10 @@ namespace Ecommerce.Formularios.cadastrar
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cADASTRODEPRODUTOSToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cADASTRODEPRODUTOSToolStripMenuItem1;
     }
 }

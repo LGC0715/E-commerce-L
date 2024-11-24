@@ -63,6 +63,7 @@ namespace Ecommerce.Formularios
             this.txtpesquisa.Name = "txtpesquisa";
             this.txtpesquisa.Size = new System.Drawing.Size(395, 22);
             this.txtpesquisa.TabIndex = 17;
+            this.txtpesquisa.TextChanged += new System.EventHandler(this.txtpesquisa_TextChanged_1);
             // 
             // dtGridVenda
             // 

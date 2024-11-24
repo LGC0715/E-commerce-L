@@ -16,5 +16,15 @@ namespace Ecommerce.Formularios
         {
             InitializeComponent();
         }
+
+        private void btnadd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Disciplinas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,13 +30,7 @@ namespace MapaSala.Formularios
             dtgridUsuarios1.DataSource = u.PreencherGrid();
         }
 
-        private void btnNovo1_Click_1(object sender, EventArgs e)
-        {
-            FrmCadastrarUsuario frm = new FrmCadastrarUsuario();
-            frm.FormClosed += FecharForm;
-            frm.ShowDialog();
-        }
-
+        
         private void txtPesquisar1_TextChanged_1(object sender, EventArgs e)
         {
             Usuarios u = new Usuarios();
@@ -60,7 +54,9 @@ namespace MapaSala.Formularios
 
         private void btnNovo1_Click(object sender, EventArgs e)
         {
-
+            FrmCadastrarUsuario frm = new FrmCadastrarUsuario();
+            frm.FormClosed += FecharForm;
+            frm.ShowDialog();
         }
     }
 }

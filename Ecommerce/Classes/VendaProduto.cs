@@ -66,9 +66,9 @@ namespace Ecommerce.Classes
             conexao.Close();
         }
 
-        /// <summary>
+        
         /// Deleta um registro específico de VendaProduto.
-        /// </summary>
+       
         public void Deletar(int vendaId, int produtoId)
         {
             conexao.Open();
@@ -80,9 +80,9 @@ namespace Ecommerce.Classes
             conexao.Close();
         }
 
-        /// <summary>
+        
         /// Retorna todos os registros de VendaProdutos com detalhes de produto.
-        /// </summary>
+        
         public DataTable ObterVendaProdutos()
         {
             DataTable dt = new DataTable();
@@ -100,9 +100,9 @@ namespace Ecommerce.Classes
             return dt;
         }
 
-        /// <summary>
+        
         /// Pesquisa registros de VendaProdutos por nome do produto.
-        /// </summary>
+      
         public DataTable Pesquisar(string termo)
         {
             DataTable dt = new DataTable();

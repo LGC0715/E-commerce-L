@@ -120,6 +120,7 @@ namespace Ecommerce.Formularios
             this.btnadd.TabIndex = 18;
             this.btnadd.Text = "Adicionar";
             this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
             // cbxCursos
             // 
@@ -152,6 +153,7 @@ namespace Ecommerce.Formularios
             this.Disciplinas.Size = new System.Drawing.Size(73, 16);
             this.Disciplinas.TabIndex = 15;
             this.Disciplinas.Text = "Disciplinas";
+            this.Disciplinas.Click += new System.EventHandler(this.Disciplinas_Click);
             // 
             // FrmVendasProdutos
             // 

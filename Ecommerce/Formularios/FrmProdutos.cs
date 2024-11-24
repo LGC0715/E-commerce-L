@@ -52,7 +52,7 @@ namespace Ecommerce.Formularios
         }
         private void txtpesquisa_TextChanged(object sender, EventArgs e)
         {
-          //  dtGridProdutos.DataSource = dao.Pesquisar(txtpesquisa.Text);
+          // dtGridProdutos.DataSource = dao.Pesquisar(txtpesquisa.Text);
         }
 
         private void dtGridProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -65,7 +65,7 @@ namespace Ecommerce.Formularios
               FrmEditarProdutos editar = new FrmEditarProdutos();
 
                 // Inscreve-se no evento
-              // editar.FormClosed += Fechou_Editar_FormClosed;
+               editar.FormClosed += Fechou_Produto_FormClosed;
 
                 editar.ShowDialog(); // Abre o formulário como um diálogo modal
 
@@ -75,7 +75,7 @@ namespace Ecommerce.Formularios
         {
 
             FrmCadastrarProdutos d = new FrmCadastrarProdutos();
-          //  d.FormClosed += Fechou_Editar_FormClosed;
+            d.FormClosed += Fechou_Produto_FormClosed;
             d.ShowDialog();
         }
     }
