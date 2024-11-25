@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,7 +11,7 @@ namespace Ecommerce.Entidade
 {
     public class Venda
     {
-        private SqlConnection Conexao = new SqlConnection("Server=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql;");
+       
 
         public int Id { get; set; }
         public DateTime DataVenda { get; set; }
@@ -19,30 +20,19 @@ namespace Ecommerce.Entidade
         public float Desconto { get; set; } // Desconto aplicado
         public string StatusVenda { get; set; } // Status da venda (Ex.: Concluída, Pendente, Cancelada)
 
-        public object[] Linha()
-        {
-            return new object[] { Id, DataVenda, Total, FormaPagamento, Desconto, StatusVenda };
-        }
-    }
 
-    namespace Ecommerce.Entidade.DAO
-    {
-        public class VendaDAO
-        {
-            private string LinhaConexao = "Server=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql;";
-            private SqlConnection Conexao;
+        private readonly string LinhaConexao = "Server=localhost;Database=AULA_DS;User Id=root;Password=";
+        private readonly MySqlConnection Conexao;
 
-            public VendaDAO()
-            {
-                Conexao = new SqlConnection(LinhaConexao);
-            }
+
+        
 
             public void Inserir(Venda venda)
             {
                 Conexao.Open();
                 string query = "INSERT INTO Vendas (DataVenda, Total, ClienteId, FormaPagamento, Desconto, StatusVenda) " +
                                "VALUES (@dataVenda, @total, @clienteId, @formaPagamento, @desconto, @statusVenda)";
-                SqlCommand comando = new SqlCommand(query, Conexao);
+                MySqlCommand comando = new MySqlCommand(query, Conexao);
                 comando.Parameters.Add(new SqlParameter("@dataVenda", venda.DataVenda));
                 comando.Parameters.Add(new SqlParameter("@total", venda.Total));
                 comando.Parameters.Add(new SqlParameter("@formaPagamento", venda.FormaPagamento));
@@ -57,8 +47,8 @@ namespace Ecommerce.Entidade
                 DataTable dt = new DataTable();
                 Conexao.Open();
                 string query = "SELECT Id, DataVenda, Total, ClienteId, FormaPagamento, Desconto, StatusVenda FROM Vendas ORDER BY Id DESC";
-                SqlCommand comando = new SqlCommand(query, Conexao);
-                SqlDataReader leitura = comando.ExecuteReader();
+                MySqlCommand comando = new MySqlCommand(query, Conexao);
+                MySqlDataReader leitura = comando.ExecuteReader();
 
                 foreach (var propriedade in typeof(Venda).GetProperties())
                 {
@@ -91,13 +81,13 @@ namespace Ecommerce.Entidade
                 Conexao.Open();
                 string query = "UPDATE Vendas SET DataVenda = @dataVenda, Total = @total, ClienteId = @clienteId, " +
                                "FormaPagamento = @formaPagamento, Desconto = @desconto, StatusVenda = @statusVenda WHERE Id = @id";
-                SqlCommand comando = new SqlCommand(query, Conexao);
+                MySqlCommand comando = new MySqlCommand(query, Conexao);
                 comando.Parameters.Add(new SqlParameter("@id", venda.Id));
-                comando.Parameters.Add(new SqlParameter("@dataVenda", venda.DataVenda));
-                comando.Parameters.Add(new SqlParameter("@total", venda.Total));
-                comando.Parameters.Add(new SqlParameter("@formaPagamento", venda.FormaPagamento));
-                comando.Parameters.Add(new SqlParameter("@desconto", venda.Desconto));
-                comando.Parameters.Add(new SqlParameter("@statusVenda", venda.StatusVenda));
+                comando.Parameters.Add(new MySqlParameter("@dataVenda", venda.DataVenda));
+                comando.Parameters.Add(new MySqlParameter("@total", venda.Total));
+                comando.Parameters.Add(new MySqlParameter("@formaPagamento", venda.FormaPagamento));
+                comando.Parameters.Add(new MySqlParameter("@desconto", venda.Desconto));
+                comando.Parameters.Add(new MySqlParameter("@statusVenda", venda.StatusVenda));
                 comando.ExecuteNonQuery();
                 Conexao.Close();
             }
@@ -106,8 +96,8 @@ namespace Ecommerce.Entidade
             {
                 Conexao.Open();
                 string query = "DELETE FROM Vendas WHERE Id = @id";
-                SqlCommand comando = new SqlCommand(query, Conexao);
-                comando.Parameters.Add(new SqlParameter("@id", id));
+                MySqlCommand comando = new MySqlCommand(query, Conexao);
+                comando.Parameters.Add(new MySqlParameter("@id", id));
                 comando.ExecuteNonQuery();
                 Conexao.Close();
             }

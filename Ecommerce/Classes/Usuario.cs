@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -13,7 +14,8 @@ namespace MapaSala.Classes
     public class Usuarios
     {
 
-        private SqlConnection Conexao = new SqlConnection("Server=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql;");
+        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=AULA_DS;User Id=root;Password=");
+        
         public int Id { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
@@ -24,11 +26,11 @@ namespace MapaSala.Classes
             Conexao.Open();
             string query = "Insert into Usuarios (Login , Senha, Ativo) " +
                 "               Values (@login, @senha, @ativo) ";
-            SqlCommand comando = new SqlCommand(query, Conexao);
+            MySqlCommand comando = new MySqlCommand(query, Conexao);
 
-            SqlParameter parametro1 = new SqlParameter("@login", Login);
-            SqlParameter parametro2 = new SqlParameter("@senha", Senha);
-            SqlParameter parametro3 = new SqlParameter("@ativo", Ativo);
+            MySqlParameter parametro1 = new MySqlParameter("@login", Login);
+            MySqlParameter parametro2 = new MySqlParameter("@senha", Senha);
+            MySqlParameter parametro3 = new MySqlParameter("@ativo", Ativo);
 
             comando.Parameters.Add(parametro1);
             comando.Parameters.Add(parametro2);
@@ -42,7 +44,7 @@ namespace MapaSala.Classes
             DataTable dataTable = new DataTable();
             string query = "SELECT Id, Login, Ativo FROM Usuarios order by Id desc";
             Conexao.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter(query, Conexao);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
             try
             {
                 adapter.Fill(dataTable);
@@ -69,7 +71,7 @@ namespace MapaSala.Classes
                 query = "SELECT Id, Login, Ativo Nome FROM Usuarios Where Login like '%" + pesquisa + "%' Order by Id desc";
             }
 
-            SqlDataAdapter adapter = new SqlDataAdapter(query, Conexao);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
             try
             {
                 adapter.Fill(dataTable);
@@ -86,7 +88,7 @@ namespace MapaSala.Classes
         {
             string query = "update Usuarios set Login = @login, Senha = @senha, Ativo = @ativo WHERE  Id = @id";
             Conexao.Open();
-            SqlCommand comando = new SqlCommand(query, Conexao);
+            MySqlCommand comando = new MySqlCommand(query, Conexao);
             comando.Parameters.Add(new SqlParameter("@login", Login));
             comando.Parameters.Add(new SqlParameter("@senha", Senha));
             comando.Parameters.Add(new SqlParameter("@ativo", Ativo));
@@ -106,8 +108,8 @@ namespace MapaSala.Classes
         {
             string query = "Delete from Usuarios WHERE  Id = @id";
             Conexao.Open();
-            SqlCommand comando = new SqlCommand(query, Conexao);
-            comando.Parameters.Add(new SqlParameter("@id", Id));
+            MySqlCommand comando = new MySqlCommand(query, Conexao);
+            comando.Parameters.Add(new MySqlParameter("@id", Id));
             int resposta = comando.ExecuteNonQuery();
             if (resposta == 1)
             {
@@ -124,9 +126,9 @@ namespace MapaSala.Classes
             DataTable dataTable = new DataTable();
             Conexao.Open();
             string query = "SELECT Id, Login, Senha, Ativo Nome FROM Usuarios Where Id = @id Order by Id desc";
-            SqlCommand Comando = new SqlCommand(query, Conexao);
+            MySqlCommand Comando = new MySqlCommand(query, Conexao);
             Comando.Parameters.AddWithValue("@id", id);
-            SqlDataReader resultado = Comando.ExecuteReader();
+            MySqlDataReader resultado = Comando.ExecuteReader();
 
             if (resultado.Read())
             {

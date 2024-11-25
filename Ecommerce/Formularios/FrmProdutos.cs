@@ -28,7 +28,7 @@ namespace Ecommerce.Formularios
                 dados.Columns.Add(atributos.Name);
             }
 
-          //  dados = dao.ObterProdutos();
+            dados = dao.ObterProdutos();
 
             dtGridProdutos.DataSource = dados;
         }
@@ -52,7 +52,7 @@ namespace Ecommerce.Formularios
         }
         private void txtpesquisa_TextChanged(object sender, EventArgs e)
         {
-          // dtGridProdutos.DataSource = dao.Pesquisar(txtpesquisa.Text);
+           dtGridProdutos.DataSource = dao.Pesquisar(txtpesquisa.Text);
         }
 
         private void dtGridProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

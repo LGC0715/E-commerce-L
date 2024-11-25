@@ -49,7 +49,8 @@ namespace Ecommerce
             this.blaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -60,27 +61,27 @@ namespace Ecommerce
             this.vENDASToolStripMenuItem,
             this.vENDADEPRODUTOSToolStripMenuItem});
             this.blaToolStripMenuItem.Name = "blaToolStripMenuItem";
-            this.blaToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
+            this.blaToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.blaToolStripMenuItem.Text = "E-COMMERCE";
             // 
             // pRODUTOSToolStripMenuItem
             // 
             this.pRODUTOSToolStripMenuItem.Name = "pRODUTOSToolStripMenuItem";
-            this.pRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
+            this.pRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.pRODUTOSToolStripMenuItem.Text = "PRODUTOS";
             this.pRODUTOSToolStripMenuItem.Click += new System.EventHandler(this.pRODUTOSToolStripMenuItem_Click);
             // 
             // vENDASToolStripMenuItem
             // 
             this.vENDASToolStripMenuItem.Name = "vENDASToolStripMenuItem";
-            this.vENDASToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
+            this.vENDASToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.vENDASToolStripMenuItem.Text = "VENDAS";
             this.vENDASToolStripMenuItem.Click += new System.EventHandler(this.vENDASToolStripMenuItem_Click);
             // 
             // vENDADEPRODUTOSToolStripMenuItem
             // 
             this.vENDADEPRODUTOSToolStripMenuItem.Name = "vENDADEPRODUTOSToolStripMenuItem";
-            this.vENDADEPRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
+            this.vENDADEPRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.vENDADEPRODUTOSToolStripMenuItem.Text = "VENDA DE PRODUTOS";
             this.vENDADEPRODUTOSToolStripMenuItem.Click += new System.EventHandler(this.vENDADEPRODUTOSToolStripMenuItem_Click);
             // 
@@ -94,35 +95,36 @@ namespace Ecommerce
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(731, 171);
+            this.dataGridView1.Location = new System.Drawing.Point(577, 182);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 176);
+            this.dataGridView1.Size = new System.Drawing.Size(180, 143);
             this.dataGridView1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(728, 152);
+            this.label1.Location = new System.Drawing.Point(574, 167);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 16);
+            this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "RESUMO:";
             // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Ecommerce.Properties.Resources.tela_principal;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1067, 521);
+            this.ClientSize = new System.Drawing.Size(800, 423);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPrincipal";
             this.Text = " ";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
