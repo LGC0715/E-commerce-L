@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ecommerce.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,7 +30,22 @@ namespace Ecommerce.Formularios.editar
 
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
+            Produto p = new Produto();
+            p.Nome = txtNome.Text;
+            p.Descricao = txtDescricao.Text;
+            p.PrecoUnitario = Convert.ToInt32(txtPreco);
+            p.Estoque = Convert.ToInt32(txtEstoque);
+            p.Inserir();
+            MessageBox.Show("Sucesso", "Cadastrado com sucesso");
+            Close();
+        }
 
+        private void btn_Excluir_Click(object sender, EventArgs e)
+        {
+            Produto p = new Produto();
+            p.Id = Convert.ToInt32(txtId.Text);
+            p.Excluir();
+            this.Close();
         }
     }
 }

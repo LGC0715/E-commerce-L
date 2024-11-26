@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Ecommerce.Entidade
 {
@@ -21,13 +22,12 @@ namespace Ecommerce.Entidade
         public string StatusVenda { get; set; } // Status da venda (Ex.: Concluída, Pendente, Cancelada)
 
 
-        private readonly string LinhaConexao = "Server=localhost;Database=AULA_DS;User Id=root;Password=";
-        private readonly MySqlConnection Conexao;
+        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=AULA_DS;User Id=root;Password=");
 
 
-        
 
-            public void Inserir(Venda venda)
+
+        public void Inserir(Venda venda)
             {
                 Conexao.Open();
                 string query = "INSERT INTO Vendas (DataVenda, Total, ClienteId, FormaPagamento, Desconto, StatusVenda) " +
@@ -68,15 +68,58 @@ namespace Ecommerce.Entidade
                             Desconto = float.Parse(leitura["Desconto"].ToString()),
                             StatusVenda = leitura["StatusVenda"].ToString()
                         };
-                        dt.Rows.Add(venda.Linha());
+                       
                     }
                 }
 
                 Conexao.Close();
                 return dt;
             }
+        public DataTable PreencherGrid()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT Id, Login, Ativo FROM Usuarios order by Id desc";
+            Conexao.Open();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
+            try
+            {
+                adapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao acessar os dados para preencher grid: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Conexao.Close();
+            return dataTable;
+        }
 
-            public void Atualizar(Venda venda)
+        public DataTable Pesquisar(string pesquisa)
+        {
+            DataTable dataTable = new DataTable();
+            Conexao.Open();
+            string query = "";
+            if (string.IsNullOrEmpty(pesquisa))
+            {
+                query = "SELECT Id, Login, Ativo Nome FROM Usuarios order by Id desc";
+            }
+            else
+            {
+                query = "SELECT Id, Login, Ativo Nome FROM Usuarios Where Login like '%" + pesquisa + "%' Order by Id desc";
+            }
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
+            try
+            {
+                adapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao acessar os dados para preencher grid: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Conexao.Close();
+            return dataTable;
+        }
+        public void Atualizar(Venda venda)
             {
                 Conexao.Open();
                 string query = "UPDATE Vendas SET DataVenda = @dataVenda, Total = @total, ClienteId = @clienteId, " +
@@ -103,4 +146,3 @@ namespace Ecommerce.Entidade
             }
         }
     }
-}

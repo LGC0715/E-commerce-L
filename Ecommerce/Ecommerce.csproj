@@ -183,9 +183,6 @@
     <EmbeddedResource Include="Formularios\cadastrar\FrmCadastrarUsuario.resx">
       <DependentUpon>FrmCadastrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\cadastrar\FrmCadastrarVendas.resx">
-      <DependentUpon>FrmCadastrarVendas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\editar\FrmEditarProdutos.resx">
       <DependentUpon>FrmEditarProdutos.cs</DependentUpon>
     </EmbeddedResource>

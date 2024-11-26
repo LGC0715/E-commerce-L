@@ -3,7 +3,6 @@ using System.Data;
 using System.Windows.Forms;
 using Ecommerce.Entidade;
 using Ecommerce.Formularios.cadastrar;
-using Ecommerce.Entidade.DAO;
 using Ecommerce.Formularios.editar;
 
 namespace Ecommerce.Formularios
@@ -25,7 +24,7 @@ namespace Ecommerce.Formularios
             }
 
             // Obtém os dados das vendas e exibe na grade
-            //dados = dao.ObterVendas();
+            dados = dao.ObterVendas();
             dtGridVenda.DataSource = dados;
         }
 
@@ -34,18 +33,15 @@ namespace Ecommerce.Formularios
         {
 
             FrmCadastrarVendas cadastrar = new FrmCadastrarVendas();
-
-            // Inscreve-se no evento de fechamento do formulário
             cadastrar.FormClosed += Fechou_Venda_FormClosed;
-
-            // Abre o formulário de cadastro como modal
             cadastrar.ShowDialog();
+            
         }
 
         // Atualiza a lista de vendas ao fechar o formulário de edição ou cadastro
         private void Fechou_Venda_FormClosed(object sender, FormClosedEventArgs e)
         {
-           //  dados = dao.ObterVendas();
+            dados = dao.ObterVendas();
             dtGridVenda.DataSource = dados;
         }
 
@@ -53,7 +49,7 @@ namespace Ecommerce.Formularios
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
             // Pesquisar pelo texto fornecido
-        //  dtGridVenda.DataSource = dao.Pesquisar(null, null); // Altere aqui se for pesquisar por datas
+            dtGridVenda.DataSource = dao.Pesquisar(txtpesquisa.Text); 
         }
 
         // Evento para abrir a edição de vendas ao clicar duas vezes em uma linha
@@ -63,7 +59,7 @@ namespace Ecommerce.Formularios
             {
                 // Obtém o ID da venda selecionada
                 int id = Convert.ToInt32(
-                    dtGridVenda.Rows[e.RowIndex].Cells[0].Value);
+                dtGridVenda.Rows[e.RowIndex].Cells[0].Value);
 
                 FrmEditarVendas editar = new FrmEditarVendas();
 

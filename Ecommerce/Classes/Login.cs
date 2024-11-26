@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace MapaSala.Classes
 {
     public class Login
     {
-        private SqlConnection Conexao = new SqlConnection("Server=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql;");
+        private MySqlConnection Conexao = new MySqlConnection("Server=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql;");
         public string Usuario { get; set; }
         public string Senha { get; set; }
 
@@ -17,10 +18,10 @@ namespace MapaSala.Classes
         {
             string query = "Select Login, Id from usuarios where Senha = @senha AND Login = @login";
             Conexao.Open();
-            SqlCommand comando = new SqlCommand(query, Conexao);
+            MySqlCommand comando = new MySqlCommand(query, Conexao);
             comando.Parameters.Add(new SqlParameter("@senha", Senha));
             comando.Parameters.Add(new SqlParameter("@login", Usuario));
-            SqlDataReader resultado = comando.ExecuteReader();
+            MySqlDataReader resultado = comando.ExecuteReader();
 
             if (resultado.HasRows)
             {

@@ -2,8 +2,9 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
-namespace Ecommerce.Entidade
+namespace Ecommerce.Classes
 {
     public class Produto
     {
@@ -14,21 +15,26 @@ namespace Ecommerce.Entidade
         public int Estoque { get; set; }
 
 
-
-        private readonly string LinhaConexao = "Server=localhost;Database=AULA_DS;User Id=root;Password=";
-        private readonly MySqlConnection Conexao;
+        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=ECOMMERCE;User Id=root;Password=");
 
 
 
-        public void Inserir(Produto produto)
+
+        public void Inserir()
         {
             Conexao.Open();
-            string query = "INSERT INTO Produtos (Nome, Descricao, Preco, Estoque) VALUES (@nome, @descricao, @preco, @estoque)";
+            string query = "INSERT INTO Produtos (Nome, Descricao, Preco_unit, Estoque) VALUES (@nome, @descricao, @preco, @estoque)";
             MySqlCommand comando = new MySqlCommand(query, Conexao);
-            comando.Parameters.Add(new MySqlParameter("@nome", produto.Nome));
-            comando.Parameters.Add(new MySqlParameter("@descricao", produto.Descricao));
-            comando.Parameters.Add(new MySqlParameter("@preco", produto.PrecoUnitario));
-            comando.Parameters.Add(new MySqlParameter("@estoque", produto.Estoque));
+
+            MySqlParameter parametro1 = new MySqlParameter("@nome", Nome);
+            MySqlParameter parametro2 = new MySqlParameter("@descricao", Descricao);
+            MySqlParameter parametro3 = new MySqlParameter("@preco", PrecoUnitario);
+            MySqlParameter parametro4 = new MySqlParameter("@estoque", Estoque);
+
+            comando.Parameters.Add(parametro1);
+            comando.Parameters.Add(parametro2);
+            comando.Parameters.Add(parametro3);
+            comando.Parameters.Add(parametro4);
             comando.ExecuteNonQuery();
             Conexao.Close();
         }
@@ -58,7 +64,6 @@ namespace Ecommerce.Entidade
                         PrecoUnitario = float.Parse(leitura["Preco"].ToString()),
                         Estoque = Convert.ToInt32(leitura["Estoque"])
                     };
-                    dt.Rows.Add(p.Linha());
                 }
             }
 
@@ -98,7 +103,7 @@ namespace Ecommerce.Entidade
                         PrecoUnitario = float.Parse(leitura["Preco"].ToString()),
                         Estoque = Convert.ToInt32(leitura["Estoque"])
                     };
-                    dt.Rows.Add(p.Linha());
+                   
                 }
             }
 
@@ -120,15 +125,23 @@ namespace Ecommerce.Entidade
             Conexao.Close();
         }
 
-        public void Deletar(int id)
+        public void Excluir()
         {
-            Conexao.Open();
             string query = "DELETE FROM Produtos WHERE Id = @id";
+            Conexao.Open();
             MySqlCommand comando = new MySqlCommand(query, Conexao);
-            comando.Parameters.Add(new MySqlParameter("@id", id));
-            comando.ExecuteNonQuery();
-            Conexao.Close();
+            comando.Parameters.Add(new MySqlParameter("@id", Id));
+            int resposta = comando.ExecuteNonQuery();
+            if (resposta == 1)
+            {
+                MessageBox.Show("Usuário Excluído com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Erro ao excluir", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+        
     }
 }
    

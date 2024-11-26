@@ -38,8 +38,6 @@ namespace Ecommerce.Formularios
         {
 
             FrmCadastrarProdutos cadastrar = new FrmCadastrarProdutos();
-
-            // Inscreve-se no evento de fechamento do formulário
             cadastrar.FormClosed += Fechou_Produto_FormClosed;
 
             // Abre o formulário de cadastro como modal
