@@ -23,10 +23,7 @@ namespace Ecommerce.Formularios.editar
 
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
@@ -46,6 +43,56 @@ namespace Ecommerce.Formularios.editar
             p.Id = Convert.ToInt32(txtId.Text);
             p.Excluir();
             this.Close();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEstoque_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPreco_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDescricao_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -53,5 +53,17 @@ namespace MapaSala
         {
 
         }
+        // Evento ao passar o mouse sobre o botão
+        private void btn_Entrar_MouseEnter(object sender, EventArgs e)
+        {
+            btn_Entrar.BackColor = System.Drawing.Color.LightBlue; // Escolha a cor desejada
+        }
+
+        // Evento ao tirar o mouse do botão
+        private void btn_Entrar_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Entrar.BackColor = System.Drawing.Color.White; // Retorna à cor original
+        }
+
     }
 }

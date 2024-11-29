@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using MySqlConnector;
+using System;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace Ecommerce.Classes
 {
@@ -17,101 +13,147 @@ namespace Ecommerce.Classes
         public int Quantidade { get; set; }
         public float Subtotal => Quantidade * PrecoUnitario;
 
+        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=AULA_DS;User Id=root;Password=");
 
-        private readonly string LinhaConexao = "Server=localhost;Database=AULA_DS;User Id=root;Password=";
-        private readonly MySqlConnection Conexao;
-
-
-
-        /// Insere um novo registro de VendaProduto.
-
-        public void Inserir(VendaProduto vendaProduto)
+        public void Inserir()
         {
             Conexao.Open();
-            string query = @"
-                INSERT INTO VendaProdutos (VendaId, ProdutoId, Quantidade, PrecoUnitario) 
-                VALUES (@vendaId, @produtoId, @quantidade, @precoUnitario)";
+            string query = "INSERT INTO VendaProdutos (VendaId, ProdutoId, Quantidade, PrecoUnitario) VALUES (@vendaId, @produtoId, @quantidade, @precoUnitario)";
             MySqlCommand comando = new MySqlCommand(query, Conexao);
-            comando.Parameters.AddWithValue("@vendaId", vendaProduto.VendaId);
-            comando.Parameters.AddWithValue("@produtoId", vendaProduto.ProdutoId);
-            comando.Parameters.AddWithValue("@quantidade", vendaProduto.Quantidade);
-            comando.Parameters.AddWithValue("@precoUnitario", vendaProduto.PrecoUnitario);
+
+            comando.Parameters.AddWithValue("@vendaId", VendaId);
+            comando.Parameters.AddWithValue("@produtoId", ProdutoId);
+            comando.Parameters.AddWithValue("@quantidade", Quantidade);
+            comando.Parameters.AddWithValue("@precoUnitario", PrecoUnitario);
+
             comando.ExecuteNonQuery();
             Conexao.Close();
         }
 
-       /// Atualiza um registro existente de VendaProduto.
-      
-        public void Atualizar(VendaProduto vendaProduto)
-        {
-            Conexao.Open();
-            string query = @"
-                UPDATE VendaProdutos 
-                SET Quantidade = @quantidade, PrecoUnitario = @precoUnitario 
-                WHERE VendaId = @vendaId AND ProdutoId = @produtoId";
-            MySqlCommand comando = new MySqlCommand(query, Conexao);
-            comando.Parameters.AddWithValue("@vendaId", vendaProduto.VendaId);
-            comando.Parameters.AddWithValue("@produtoId", vendaProduto.ProdutoId);
-            comando.Parameters.AddWithValue("@quantidade", vendaProduto.Quantidade);
-            comando.Parameters.AddWithValue("@precoUnitario", vendaProduto.PrecoUnitario);
-            comando.ExecuteNonQuery();
-            Conexao.Close();
-        }
-
-        
-        /// Deleta um registro específico de VendaProduto.
-       
-        public void Deletar(int vendaId, int produtoId)
-        {
-            Conexao.Open();
-            string query = "DELETE FROM VendaProdutos WHERE VendaId = @vendaId AND ProdutoId = @produtoId";
-            MySqlCommand comando = new MySqlCommand(query, Conexao);
-            comando.Parameters.AddWithValue("@vendaId", vendaId);
-            comando.Parameters.AddWithValue("@produtoId", produtoId);
-            comando.ExecuteNonQuery();
-            Conexao.Close();
-        }
-
-        
-        /// Retorna todos os registros de VendaProdutos com detalhes de produto.
-        
         public DataTable ObterVendaProdutos()
         {
             DataTable dt = new DataTable();
             Conexao.Open();
-            string query = @"
-                SELECT vp.VendaId, vp.ProdutoId, p.Nome AS Produto, vp.Quantidade, vp.PrecoUnitario, 
-                       (vp.Quantidade * vp.PrecoUnitario) AS Subtotal
-                FROM VendaProdutos vp
-                INNER JOIN Produtos p ON vp.ProdutoId = p.Id
-                ORDER BY vp.VendaId";
+            string query = "SELECT VendaId, ProdutoId, Quantidade, PrecoUnitario, (Quantidade * PrecoUnitario) AS Subtotal FROM VendaProdutos ORDER BY VendaId DESC";
             MySqlCommand comando = new MySqlCommand(query, Conexao);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(comando);
-            adapter.Fill(dt);
+            MySqlDataReader leitura = comando.ExecuteReader();
+
+            dt.Columns.Add("VendaId");
+            dt.Columns.Add("ProdutoId");
+            dt.Columns.Add("Quantidade");
+            dt.Columns.Add("PrecoUnitario");
+            dt.Columns.Add("Subtotal");
+
+            if (leitura.HasRows)
+            {
+                while (leitura.Read())
+                {
+                    DataRow row = dt.NewRow();
+                    row["VendaId"] = leitura["VendaId"];
+                    row["ProdutoId"] = leitura["ProdutoId"];
+                    row["Quantidade"] = leitura["Quantidade"];
+                    row["PrecoUnitario"] = leitura["PrecoUnitario"];
+                    row["Subtotal"] = leitura["Subtotal"];
+                    dt.Rows.Add(row);
+                }
+            }
+
             Conexao.Close();
             return dt;
         }
 
-        
-        /// Pesquisa registros de VendaProdutos por nome do produto.
-      
-        public DataTable Pesquisar(string termo)
+        public DataTable PreencherGrid()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT VendaId, ProdutoId, Quantidade, PrecoUnitario, (Quantidade * PrecoUnitario) AS Subtotal FROM VendaProdutos ORDER BY VendaId DESC";
+            Conexao.Open();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
+            try
+            {
+                adapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao acessar os dados para preencher grid: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Conexao.Close();
+            return dataTable;
+        }
+
+        public DataTable Pesquisar(string pesquisa)
         {
             DataTable dt = new DataTable();
             Conexao.Open();
-            string query = @"
-                SELECT vp.VendaId, vp.ProdutoId, p.Nome AS Produto, vp.Quantidade, vp.PrecoUnitario, 
-                       (vp.Quantidade * vp.PrecoUnitario) AS Subtotal
-                FROM VendaProdutos vp
-                INNER JOIN Produtos p ON vp.ProdutoId = p.Id
-                WHERE p.Nome LIKE @termo
-                ORDER BY vp.VendaId";
+
+            string query = string.IsNullOrEmpty(pesquisa)
+                ? "SELECT VendaId, ProdutoId, Quantidade, PrecoUnitario, (Quantidade * PrecoUnitario) AS Subtotal FROM VendaProdutos ORDER BY VendaId DESC"
+                : "SELECT VendaId, ProdutoId, Quantidade, PrecoUnitario, (Quantidade * PrecoUnitario) AS Subtotal FROM VendaProdutos WHERE ProdutoId LIKE @pesquisa ORDER BY VendaId DESC";
+
             MySqlCommand comando = new MySqlCommand(query, Conexao);
-            comando.Parameters.AddWithValue("@termo", $"%{termo}%");
-            MySqlDataAdapter adapter = new MySqlDataAdapter(comando);
-            adapter.Fill(dt);
+            if (!string.IsNullOrEmpty(pesquisa))
+                comando.Parameters.AddWithValue("@pesquisa", "%" + pesquisa + "%");
+
+            MySqlDataReader leitura = comando.ExecuteReader();
+
+            dt.Columns.Add("VendaId");
+            dt.Columns.Add("ProdutoId");
+            dt.Columns.Add("Quantidade");
+            dt.Columns.Add("PrecoUnitario");
+            dt.Columns.Add("Subtotal");
+
+            if (leitura.HasRows)
+            {
+                while (leitura.Read())
+                {
+                    DataRow row = dt.NewRow();
+                    row["VendaId"] = leitura["VendaId"];
+                    row["ProdutoId"] = leitura["ProdutoId"];
+                    row["Quantidade"] = leitura["Quantidade"];
+                    row["PrecoUnitario"] = leitura["PrecoUnitario"];
+                    row["Subtotal"] = leitura["Subtotal"];
+                    dt.Rows.Add(row);
+                }
+            }
+
             Conexao.Close();
             return dt;
         }
+
+        public void Atualizar()
+        {
+            Conexao.Open();
+            string query = "UPDATE VendaProdutos SET Quantidade = @quantidade, PrecoUnitario = @precoUnitario WHERE VendaId = @vendaId AND ProdutoId = @produtoId";
+            MySqlCommand comando = new MySqlCommand(query, Conexao);
+
+            comando.Parameters.AddWithValue("@vendaId", VendaId);
+            comando.Parameters.AddWithValue("@produtoId", ProdutoId);
+            comando.Parameters.AddWithValue("@quantidade", Quantidade);
+            comando.Parameters.AddWithValue("@precoUnitario", PrecoUnitario);
+
+            comando.ExecuteNonQuery();
+            Conexao.Close();
+        }
+
+        public void Excluir()
+        {
+            string query = "DELETE FROM VendaProdutos WHERE VendaId = @vendaId AND ProdutoId = @produtoId";
+            Conexao.Open();
+            MySqlCommand comando = new MySqlCommand(query, Conexao);
+
+            comando.Parameters.AddWithValue("@vendaId", VendaId);
+            comando.Parameters.AddWithValue("@produtoId", ProdutoId);
+
+            int resposta = comando.ExecuteNonQuery();
+            if (resposta == 1)
+            {
+                MessageBox.Show("VendaProduto excluído com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Erro ao excluir", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            Conexao.Close();
+        }
     }
- }
+}

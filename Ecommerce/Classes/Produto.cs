@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MySqlConnector;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -16,10 +16,6 @@ namespace Ecommerce.Classes
 
 
         private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=ECOMMERCE;User Id=root;Password=");
-
-
-
-
         public void Inserir()
         {
             Conexao.Open();
@@ -70,7 +66,23 @@ namespace Ecommerce.Classes
             Conexao.Close();
             return dt;
         }
-
+        public DataTable PreencherGrid()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT Id, Nome, PrcoUnitario, Estoque FROM Produto order by Id desc";
+            Conexao.Open();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
+            try
+            {
+                adapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao acessar os dados para preencher grid: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Conexao.Close();
+            return dataTable;
+        }
         public DataTable Pesquisar(string pesquisa)
         {
             DataTable dt = new DataTable();
