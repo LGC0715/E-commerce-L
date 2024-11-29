@@ -76,6 +76,7 @@ namespace Ecommerce.Formularios.editar
             this.label6.Size = new System.Drawing.Size(65, 16);
             this.label6.TabIndex = 71;
             this.label6.Text = "Desconto";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // txtDesconto
             // 
@@ -84,6 +85,7 @@ namespace Ecommerce.Formularios.editar
             this.txtDesconto.Name = "txtDesconto";
             this.txtDesconto.Size = new System.Drawing.Size(244, 22);
             this.txtDesconto.TabIndex = 70;
+            this.txtDesconto.TextChanged += new System.EventHandler(this.txtDesconto_TextChanged);
             // 
             // label5
             // 
@@ -94,6 +96,7 @@ namespace Ecommerce.Formularios.editar
             this.label5.Size = new System.Drawing.Size(138, 16);
             this.label5.TabIndex = 69;
             this.label5.Text = "Forma de Pagamento";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtFormaPagamento
             // 
@@ -102,6 +105,7 @@ namespace Ecommerce.Formularios.editar
             this.txtFormaPagamento.Name = "txtFormaPagamento";
             this.txtFormaPagamento.Size = new System.Drawing.Size(244, 22);
             this.txtFormaPagamento.TabIndex = 68;
+            this.txtFormaPagamento.TextChanged += new System.EventHandler(this.txtFormaPagamento_TextChanged);
             // 
             // txtId
             // 
@@ -112,6 +116,7 @@ namespace Ecommerce.Formularios.editar
             this.txtId.Size = new System.Drawing.Size(55, 16);
             this.txtId.TabIndex = 67;
             this.txtId.Text = "label_id";
+            this.txtId.Click += new System.EventHandler(this.txtId_Click);
             // 
             // label3
             // 
@@ -122,6 +127,7 @@ namespace Ecommerce.Formularios.editar
             this.label3.Size = new System.Drawing.Size(18, 16);
             this.label3.TabIndex = 66;
             this.label3.Text = "Id";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -132,6 +138,7 @@ namespace Ecommerce.Formularios.editar
             this.label2.Size = new System.Drawing.Size(79, 16);
             this.label2.TabIndex = 65;
             this.label2.Text = "Data Venda";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -142,6 +149,7 @@ namespace Ecommerce.Formularios.editar
             this.label1.Size = new System.Drawing.Size(38, 16);
             this.label1.TabIndex = 64;
             this.label1.Text = "Total";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtTotal
             // 
@@ -150,6 +158,7 @@ namespace Ecommerce.Formularios.editar
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(244, 22);
             this.txtTotal.TabIndex = 63;
+            this.txtTotal.TextChanged += new System.EventHandler(this.txtTotal_TextChanged);
             // 
             // txtDataVenda
             // 
@@ -158,6 +167,7 @@ namespace Ecommerce.Formularios.editar
             this.txtDataVenda.Name = "txtDataVenda";
             this.txtDataVenda.Size = new System.Drawing.Size(243, 22);
             this.txtDataVenda.TabIndex = 62;
+            this.txtDataVenda.TextChanged += new System.EventHandler(this.txtDataVenda_TextChanged);
             // 
             // label4
             // 
@@ -168,6 +178,7 @@ namespace Ecommerce.Formularios.editar
             this.label4.Size = new System.Drawing.Size(87, 16);
             this.label4.TabIndex = 75;
             this.label4.Text = "Status Venda";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtStatusVenda
             // 
@@ -176,6 +187,7 @@ namespace Ecommerce.Formularios.editar
             this.txtStatusVenda.Name = "txtStatusVenda";
             this.txtStatusVenda.Size = new System.Drawing.Size(244, 22);
             this.txtStatusVenda.TabIndex = 74;
+            this.txtStatusVenda.TextChanged += new System.EventHandler(this.txtStatusVenda_TextChanged);
             // 
             // FrmEditarVendas
             // 

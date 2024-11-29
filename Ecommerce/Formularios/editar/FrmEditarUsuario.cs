@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Ecommerce.Formularios.editar
 {
-    public partial class FrmEditarUsuariocs : Form
+    public partial class FrmEditarUsuario : Form
     {
-        public FrmEditarUsuariocs()
+        public FrmEditarUsuario()
         {
             InitializeComponent();
         }

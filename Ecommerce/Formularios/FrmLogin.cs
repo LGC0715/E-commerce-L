@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ecommerce;
-using MapaSala.Classes;
+using Ecommerce.Classes;
 
 namespace MapaSala
 {

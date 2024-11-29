@@ -36,12 +36,72 @@ namespace Ecommerce.Formularios.editar
             Venda p = new Venda();
             p.DataVenda = txtDataVenda.Text;
             p.Total = Convert.ToInt32(txtTotal);
-            p.FormaPagamento = Convert.ToInt32(txtFormaPagamento);
+            p.FormaPagamento = txtFormaPagamento.Text;
             p.Desconto = Convert.ToInt32(txtDesconto); 
-            p.StatusVenda = Convert.ToInt32(txtStatusVenda);
+            p.StatusVenda = txtStatusVenda.Text;
             p.Inserir();
             MessageBox.Show("Sucesso", "Cadastrado com sucesso");
             Close();
+        }
+
+        private void txtStatusVenda_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDesconto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFormaPagamento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTotal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDataVenda_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

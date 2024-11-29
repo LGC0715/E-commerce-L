@@ -1,6 +1,6 @@
 ﻿using Ecommerce.Formularios.cadastrar;
 using Ecommerce.Formularios.editar;
-using MapaSala.Classes;
+using Ecommerce.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MapaSala.Formularios
+namespace Ecommerce.Formularios
 {
     public partial class frmUsuarios : Form
     {
@@ -44,11 +44,11 @@ namespace MapaSala.Formularios
                 int id = Convert.ToInt32(
                     dtgridUsuarios1.Rows[e.RowIndex].Cells[0].Value);
 
-              //  FrmEditarUsuariocs editar = new FrmEditarUsuariocs(id);
+                FrmEditarUsuario editar = new FrmEditarUsuario(id);
 
                 // Inscreve-se no evento
-            //    editar.FormClosed += FecharForm;
-             //   editar.ShowDialog(); // Abre o formulário como um diálogo modal
+               editar.FormClosed += FecharForm;
+                editar.ShowDialog(); // Abre o formulário como um diálogo modal
             }
         }
 

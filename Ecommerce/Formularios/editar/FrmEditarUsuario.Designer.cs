@@ -1,6 +1,6 @@
 ﻿namespace Ecommerce.Formularios.editar
 {
-    partial class FrmEditarUsuariocs
+    partial class FrmEditarUsuario
     {
         /// <summary>
         /// Required designer variable.

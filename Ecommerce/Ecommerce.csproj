@@ -137,11 +137,11 @@
     <Compile Include="Formularios\editar\FrmEditarProdutos.Designer.cs">
       <DependentUpon>FrmEditarProdutos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\editar\FrmEditarUsuariocs.cs">
+    <Compile Include="Formularios\editar\FrmEditarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\editar\FrmEditarUsuariocs.Designer.cs">
-      <DependentUpon>FrmEditarUsuariocs.cs</DependentUpon>
+    <Compile Include="Formularios\editar\FrmEditarUsuario.Designer.cs">
+      <DependentUpon>FrmEditarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\editar\FrmEditarVendas.cs">
       <SubType>Form</SubType>
@@ -193,11 +193,14 @@
     <EmbeddedResource Include="Formularios\cadastrar\FrmCadastrarUsuario.resx">
       <DependentUpon>FrmCadastrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\cadastrar\FrmCadastrarVendas.resx">
+      <DependentUpon>FrmCadastrarVendas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\editar\FrmEditarProdutos.resx">
       <DependentUpon>FrmEditarProdutos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\editar\FrmEditarUsuariocs.resx">
-      <DependentUpon>FrmEditarUsuariocs.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\editar\FrmEditarUsuario.resx">
+      <DependentUpon>FrmEditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\editar\FrmEditarVendas.resx">
       <DependentUpon>FrmEditarVendas.cs</DependentUpon>

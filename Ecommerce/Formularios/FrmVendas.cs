@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using Ecommerce.Entidade;
+using Ecommerce.Classes;
 using Ecommerce.Formularios.cadastrar;
 using Ecommerce.Formularios.editar;
 

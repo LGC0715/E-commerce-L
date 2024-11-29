@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
-namespace MapaSala.Classes
+namespace Ecommerce   .Classes
 {
     public class Usuarios
     {

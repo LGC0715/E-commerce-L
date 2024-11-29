@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapaSala.Classes
+namespace Ecommerce.Classes
 {
     public class Login
     {

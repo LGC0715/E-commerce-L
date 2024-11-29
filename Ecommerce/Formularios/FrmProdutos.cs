@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Ecommerce.Entidade;
 using Ecommerce.Classes;
 using Ecommerce.Formularios.cadastrar;
 using Ecommerce.Formularios.editar;

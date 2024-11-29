@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Ecommerce.Entidade;
+using Ecommerce.Classes;
 using Ecommerce.Formularios;
 
 namespace Ecommerce
@@ -55,8 +55,8 @@ namespace Ecommerce
 
         private void cADASTRARNOVOUSUARIOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // FrmUsuario s = new FrmUsuario();
-            //s.ShowDialog();
+           FrmUsuario s = new FrmUsuario();
+            s.ShowDialog();
         }
 
         // Simulação de dados para o dashboard
