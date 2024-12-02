@@ -39,5 +39,10 @@ namespace Ecommerce.Formularios.cadastrar
         {
 
         }
+
+        private void txtEstoque_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

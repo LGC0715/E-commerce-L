@@ -213,7 +213,7 @@ namespace Ecommerce.Formularios.editar
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.txtDataVenda);
             this.Name = "FrmEditarVendas";
-            this.Text = "FrmEditarVendas";
+            this.Text = "  ";
             this.Load += new System.EventHandler(this.FrmEditarVendas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

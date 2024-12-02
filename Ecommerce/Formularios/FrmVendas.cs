@@ -77,9 +77,6 @@ namespace Ecommerce.Formularios
             dtGridVenda.DataSource = u.Pesquisar(txtpesquisa.Text);
         }
 
-        private void dtGridVenda_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
     }
 }

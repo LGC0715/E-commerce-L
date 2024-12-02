@@ -52,7 +52,7 @@ namespace Ecommerce.Formularios
             this.dtgridUsuarios1.RowHeadersWidth = 51;
             this.dtgridUsuarios1.Size = new System.Drawing.Size(1008, 448);
             this.dtgridUsuarios1.TabIndex = 5;
-            this.dtgridUsuarios1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgridUsuarios1_CellDoubleClick_1);
+            this.dtgridUsuarios1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgridUsuarios1_CellDoubleClick_1);
             // 
             // groupBox1
             // 

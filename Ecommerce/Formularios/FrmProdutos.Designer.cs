@@ -33,6 +33,7 @@ namespace Ecommerce.Formularios
             this.label4 = new System.Windows.Forms.Label();
             this.txtpesquisa = new System.Windows.Forms.TextBox();
             this.dtGridProdutos = new System.Windows.Forms.DataGridView();
+            this.txtId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridProdutos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,13 +80,24 @@ namespace Ecommerce.Formularios
             this.dtGridProdutos.RowHeadersWidth = 51;
             this.dtGridProdutos.Size = new System.Drawing.Size(1027, 492);
             this.dtGridProdutos.TabIndex = 16;
-            this.dtGridProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridProdutos_CellDoubleClick);
+            this.dtGridProdutos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridProdutos_CellDoubleClick);
+            // 
+            // txtId
+            // 
+            this.txtId.AutoSize = true;
+            this.txtId.Location = new System.Drawing.Point(555, 28);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(71, 16);
+            this.txtId.TabIndex = 68;
+            this.txtId.Text = "Pesquisar:";
             // 
             // FrmProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 601);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnadd_produto);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtpesquisa);
@@ -105,5 +117,6 @@ namespace Ecommerce.Formularios
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtpesquisa;
         private System.Windows.Forms.DataGridView dtGridProdutos;
+        private System.Windows.Forms.Label txtId;
     }
 }

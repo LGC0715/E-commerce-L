@@ -33,13 +33,14 @@ namespace Ecommerce.Formularios
             this.label4 = new System.Windows.Forms.Label();
             this.txtpesquisa = new System.Windows.Forms.TextBox();
             this.dtGridVenda = new System.Windows.Forms.DataGridView();
+            this.txtId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridVenda)).BeginInit();
             this.SuspendLayout();
             // 
             // btnadd_venda
             // 
             this.btnadd_venda.Location = new System.Drawing.Point(20, 31);
-            this.btnadd_venda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnadd_venda.Margin = new System.Windows.Forms.Padding(4);
             this.btnadd_venda.Name = "btnadd_venda";
             this.btnadd_venda.Size = new System.Drawing.Size(224, 28);
             this.btnadd_venda.TabIndex = 19;
@@ -79,18 +80,29 @@ namespace Ecommerce.Formularios
             this.dtGridVenda.RowHeadersWidth = 51;
             this.dtGridVenda.Size = new System.Drawing.Size(1027, 492);
             this.dtGridVenda.TabIndex = 16;
-            this.dtGridVenda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridVenda_CellContentClick);
+            this.dtGridVenda.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridVenda_CellDoubleClick);
+            // 
+            // txtId
+            // 
+            this.txtId.AutoSize = true;
+            this.txtId.Location = new System.Drawing.Point(539, 37);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(71, 16);
+            this.txtId.TabIndex = 69;
+            this.txtId.Text = "Pesquisar:";
             // 
             // FrmVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 596);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnadd_venda);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtpesquisa);
             this.Controls.Add(this.dtGridVenda);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmVendas";
             this.Text = "FormVendas";
             ((System.ComponentModel.ISupportInitialize)(this.dtGridVenda)).EndInit();
@@ -105,5 +117,6 @@ namespace Ecommerce.Formularios
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtpesquisa;
         private System.Windows.Forms.DataGridView dtGridVenda;
+        private System.Windows.Forms.Label txtId;
     }
 }

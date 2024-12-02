@@ -20,7 +20,7 @@ namespace Ecommerce.Formularios.editar
         {
             InitializeComponent();
 
-            string query = "select Id, Nome, Descricao, PrecoUnitrio, Estoque " +
+            string query = "select Id, Nome, Descricao, PrecoUnitario, Estoque " +
                 "from Produto where Id = @id";
 
             
@@ -64,7 +64,7 @@ namespace Ecommerce.Formularios.editar
             Produto p = new Produto();
             p.Nome = txtNome.Text;
             p.Descricao = txtDescricao.Text;
-            p.PrecoUnitario = Convert.ToInt32(txtPreco);
+            p.PrecoUnitario = Convert.ToDecimal(txtPreco.Text);
             p.Estoque = Convert.ToInt32(txtEstoque);
             p.Inserir();
             MessageBox.Show("Sucesso", "Cadastrado com sucesso");
