@@ -13,7 +13,7 @@ namespace Ecommerce.Classes
         public int Quantidade { get; set; }
         public float Subtotal => Quantidade * PrecoUnitario;
 
-        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=AULA_DS;User Id=root;Password=");
+        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=ECOMMERCE;User Id=root;Password=");
 
         public void Inserir()
         {

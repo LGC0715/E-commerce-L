@@ -27,7 +27,7 @@ namespace Ecommerce.Formularios
                 dados.Columns.Add(atributos.Name);
             }
 
-            dados = dao.ObterProdutos();
+            dados = dao.PreencherGrid();
 
             dtGridProdutos.DataSource = dados;
         }
@@ -44,7 +44,7 @@ namespace Ecommerce.Formularios
         }
         private void Fechou_Produto_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // dados = dao.ObterVendas();
+            dados = dao.PreencherGrid();
             dtGridProdutos.DataSource = dados;
         }
         private void txtpesquisa_TextChanged(object sender, EventArgs e)

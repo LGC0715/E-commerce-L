@@ -1,5 +1,5 @@
 ﻿
-namespace MapaSala.Formularios
+namespace Ecommerce.Formularios
 {
     partial class frmUsuarios
     {

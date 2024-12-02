@@ -44,7 +44,7 @@ namespace Ecommerce.Formularios
                 int id = Convert.ToInt32(
                     dtgridUsuarios1.Rows[e.RowIndex].Cells[0].Value);
 
-                FrmEditarUsuario editar = new FrmEditarUsuario(id);
+                FrmEditarUsuario editar = new FrmEditarUsuario();
 
                 // Inscreve-se no evento
                editar.FormClosed += FecharForm;

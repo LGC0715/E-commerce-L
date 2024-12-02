@@ -55,8 +55,8 @@ namespace Ecommerce
 
         private void cADASTRARNOVOUSUARIOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           FrmUsuario s = new FrmUsuario();
-            s.ShowDialog();
+            frmUsuarios s = new frmUsuarios();
+           s.ShowDialog();
         }
 
         // Simulação de dados para o dashboard

@@ -28,8 +28,8 @@ namespace Ecommerce.Formularios.cadastrar
             Produto p = new Produto();
             p.Nome = txtNome.Text;
             p.Descricao = txtDescricao.Text;
-            p.PrecoUnitario = Convert.ToInt32(txtPreco);
-            p.Estoque = Convert.ToInt32(txtEstoque);
+            p.PrecoUnitario = Convert.ToDecimal(txtPreco.Text);
+            p.Estoque = Convert.ToInt32(txtEstoque.Text);
             p.Inserir();
             MessageBox.Show("Sucesso", "Cadastrado com sucesso");
             Close();

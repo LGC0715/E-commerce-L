@@ -23,9 +23,9 @@ namespace Ecommerce.Classes
         public string StatusVenda { get; set; } // Status da venda (Ex.: Concluída, Pendente, Cancelada)
 
 
-        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=AULA_DS;User Id=root;Password=");
 
 
+        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=ECOMMERCE;User Id=root;Password=");
 
 
         public void Inserir()
@@ -132,7 +132,7 @@ namespace Ecommerce.Classes
                         Id = Convert.ToInt32(leitura["Id"]),
                         Nome = leitura["Nome"].ToString(),
                         Descricao = leitura["Descricao"].ToString(),
-                        PrecoUnitario = float.Parse(leitura["Preco"].ToString()),
+                        PrecoUnitario = decimal.Parse(leitura["PrecoUnitario"].ToString()),
                         Estoque = Convert.ToInt32(leitura["Estoque"])
                     };
 

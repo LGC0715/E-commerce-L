@@ -11,7 +11,7 @@ namespace Ecommerce.Classes
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        public float PrecoUnitario { get; set; }
+        public decimal PrecoUnitario { get; set; }
         public int Estoque { get; set; }
 
 
@@ -19,7 +19,7 @@ namespace Ecommerce.Classes
         public void Inserir()
         {
             Conexao.Open();
-            string query = "INSERT INTO Produtos (Nome, Descricao, Preco_unit, Estoque) VALUES (@nome, @descricao, @preco, @estoque)";
+            string query = "INSERT INTO Produto (Nome, Descricao, PrecoUnitario, Estoque) VALUES (@nome, @descricao, @preco, @estoque)";
             MySqlCommand comando = new MySqlCommand(query, Conexao);
 
             MySqlParameter parametro1 = new MySqlParameter("@nome", Nome);
@@ -34,12 +34,28 @@ namespace Ecommerce.Classes
             comando.ExecuteNonQuery();
             Conexao.Close();
         }
-
+        public DataTable PreencherGrid()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT Id, Nome, Descricao, PrecoUnitario, Estoque FROM Produto ORDER BY Id DESC";
+            Conexao.Open();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
+            try
+            {
+                adapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao acessar os dados para preencher grid: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Conexao.Close();
+            return dataTable;
+        }
         public DataTable ObterProdutos()
         {
             DataTable dt = new DataTable();
             Conexao.Open();
-            string query = "SELECT Id, Nome, Descricao, Preco, Estoque FROM Produtos ORDER BY Id DESC";
+            string query = "SELECT Id, Nome, Descricao, PrecoUnitario, Estoque FROM Produto ORDER BY Id DESC";
             MySqlCommand comando = new MySqlCommand(query, Conexao);
             MySqlDataReader leitura = comando.ExecuteReader();
 
@@ -57,7 +73,7 @@ namespace Ecommerce.Classes
                         Id = Convert.ToInt32(leitura["Id"]),
                         Nome = leitura["Nome"].ToString(),
                         Descricao = leitura["Descricao"].ToString(),
-                        PrecoUnitario = float.Parse(leitura["Preco"].ToString()),
+                        PrecoUnitario = decimal.Parse(leitura["PrecoUnitario"].ToString()),
                         Estoque = Convert.ToInt32(leitura["Estoque"])
                     };
                 }
@@ -66,31 +82,15 @@ namespace Ecommerce.Classes
             Conexao.Close();
             return dt;
         }
-        public DataTable PreencherGrid()
-        {
-            DataTable dataTable = new DataTable();
-            string query = "SELECT Id, Nome, PrcoUnitario, Estoque FROM Produto order by Id desc";
-            Conexao.Open();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
-            try
-            {
-                adapter.Fill(dataTable);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao acessar os dados para preencher grid: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            Conexao.Close();
-            return dataTable;
-        }
+       
         public DataTable Pesquisar(string pesquisa)
         {
             DataTable dt = new DataTable();
             Conexao.Open();
 
             string query = string.IsNullOrEmpty(pesquisa)
-                ? "SELECT Id, Nome, Descricao, Preco, Estoque FROM Produtos ORDER BY Id DESC"
-                : "SELECT Id, Nome, Descricao, Preco, Estoque FROM Produtos WHERE Nome LIKE @pesquisa ORDER BY Id DESC";
+                ? "SELECT Id, Nome, Descricao, PrecoUnitario, Estoque FROM Produto ORDER BY Id DESC"
+                : "SELECT Id, Nome, Descricao, PrecoUnitario, Estoque FROM Produto WHERE Nome LIKE @pesquisa ORDER BY Id DESC";
 
             MySqlCommand comando = new MySqlCommand(query, Conexao);
             if (!string.IsNullOrEmpty(pesquisa))
@@ -112,7 +112,7 @@ namespace Ecommerce.Classes
                         Id = Convert.ToInt32(leitura["Id"]),
                         Nome = leitura["Nome"].ToString(),
                         Descricao = leitura["Descricao"].ToString(),
-                        PrecoUnitario = float.Parse(leitura["Preco"].ToString()),
+                        PrecoUnitario = decimal.Parse(leitura["PrecoUnitario"].ToString()),
                         Estoque = Convert.ToInt32(leitura["Estoque"])
                     };
                    
@@ -126,7 +126,7 @@ namespace Ecommerce.Classes
         public void Atualizar(Produto produto)
         {
             Conexao.Open();
-            string query = "UPDATE Produtos SET Nome = @nome, Descricao = @descricao, Preco = @preco, Estoque = @estoque WHERE Id = @id";
+            string query = "UPDATE Produto SET Nome = @nome, Descricao = @descricao, PrecoUnitario = @preco, Estoque = @estoque WHERE Id = @id";
             MySqlCommand comando = new MySqlCommand(query, Conexao);
             comando.Parameters.Add(new MySqlParameter("@id", produto.Id));
             comando.Parameters.Add(new MySqlParameter("@nome", produto.Nome));
@@ -139,7 +139,7 @@ namespace Ecommerce.Classes
 
         public void Excluir()
         {
-            string query = "DELETE FROM Produtos WHERE Id = @id";
+            string query = "DELETE FROM Produto WHERE Id = @id";
             Conexao.Open();
             MySqlCommand comando = new MySqlCommand(query, Conexao);
             comando.Parameters.Add(new MySqlParameter("@id", Id));
