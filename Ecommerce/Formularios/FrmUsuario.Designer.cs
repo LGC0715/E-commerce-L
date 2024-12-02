@@ -52,6 +52,7 @@ namespace Ecommerce.Formularios
             this.dtgridUsuarios1.RowHeadersWidth = 51;
             this.dtgridUsuarios1.Size = new System.Drawing.Size(1008, 448);
             this.dtgridUsuarios1.TabIndex = 5;
+            this.dtgridUsuarios1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgridUsuarios1_CellDoubleClick_1);
             // 
             // groupBox1
             // 
@@ -85,6 +86,7 @@ namespace Ecommerce.Formularios
             this.txtPesquisar1.Name = "txtPesquisar1";
             this.txtPesquisar1.Size = new System.Drawing.Size(636, 22);
             this.txtPesquisar1.TabIndex = 1;
+            this.txtPesquisar1.TextChanged += new System.EventHandler(this.txtPesquisar1_TextChanged);
             // 
             // btnNovo1
             // 

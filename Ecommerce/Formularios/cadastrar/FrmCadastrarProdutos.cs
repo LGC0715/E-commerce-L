@@ -34,5 +34,10 @@ namespace Ecommerce.Formularios.cadastrar
             MessageBox.Show("Sucesso", "Cadastrado com sucesso");
             Close();
         }
+
+        private void txtPreco_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

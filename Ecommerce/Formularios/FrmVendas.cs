@@ -53,7 +53,7 @@ namespace Ecommerce.Formularios
         }
 
         // Evento para abrir a edição de vendas ao clicar duas vezes em uma linha
-        private void dtGridVendas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dtGridVenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -61,17 +61,23 @@ namespace Ecommerce.Formularios
                 int id = Convert.ToInt32(
                 dtGridVenda.Rows[e.RowIndex].Cells[0].Value);
 
-                FrmEditarVendas editar = new FrmEditarVendas();
+                FrmEditarVendas editar = new FrmEditarVendas(id);
 
                 // Inscreve-se no evento de fechamento do formulário de edição
                editar.FormClosed += Fechou_Venda_FormClosed;
-
+                 
                 // Abre o formulário de edição como modal
                editar.ShowDialog();
             }
         }
 
         private void txtpesquisa_TextChanged_1(object sender, EventArgs e)
+        {
+            Venda u = new Venda();
+            dtGridVenda.DataSource = u.Pesquisar(txtpesquisa.Text);
+        }
+
+        private void dtGridVenda_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -89,6 +89,7 @@
             this.btn_excluir.TabIndex = 12;
             this.btn_excluir.Text = "Excluir";
             this.btn_excluir.UseVisualStyleBackColor = true;
+            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
             // 
             // label2
             // 
@@ -119,6 +120,7 @@
             this.btnSalvar.TabIndex = 9;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // chkAtivo
             // 
@@ -147,13 +149,13 @@
             this.txtLogin.Size = new System.Drawing.Size(279, 22);
             this.txtLogin.TabIndex = 6;
             // 
-            // FrmEditarUsuariocs
+            // FrmEditarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 335);
             this.Controls.Add(this.groupBox1);
-            this.Name = "FrmEditarUsuariocs";
+            this.Name = "FrmEditarUsuario";
             this.Text = "FrmEditarUsuariocs";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

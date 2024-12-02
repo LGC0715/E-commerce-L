@@ -17,10 +17,10 @@ namespace Ecommerce.Classes
 
         public int Id { get; set; }
         public string DataVenda { get; set; }
-        public float Total { get; set; }
-        public string FormaPagamento { get; set; } // Forma de pagamento
-        public float Desconto { get; set; } // Desconto aplicado
-        public string StatusVenda { get; set; } // Status da venda (Ex.: Concluída, Pendente, Cancelada)
+        public decimal Total { get; set; }
+        public string FormaPagamento { get; set; } 
+        public decimal Desconto { get; set; } 
+        public string StatusVenda { get; set; } 
 
 
 
@@ -31,7 +31,7 @@ namespace Ecommerce.Classes
         public void Inserir()
             {
                 Conexao.Open();
-                string query = "INSERT INTO Vendas (DataVenda, Total, FormaPagamento, Desconto, StatusVenda) " +
+                string query = "INSERT INTO Venda (DataVenda, Total, FormaPagamento, Desconto, StatusVenda) " +
                                "VALUES (@dataVenda, @total, @formapagamento, @desconto, @statusVenda)";
                 MySqlCommand comando = new MySqlCommand(query, Conexao);
                 
@@ -39,7 +39,7 @@ namespace Ecommerce.Classes
             
             MySqlParameter parametro1 = new MySqlParameter("@datavenda", DataVenda);
             MySqlParameter parametro2 = new MySqlParameter("@total", Total);
-            MySqlParameter parametro3 = new MySqlParameter("@formapaamento", FormaPagamento);
+            MySqlParameter parametro3 = new MySqlParameter("@formapagamento", FormaPagamento);
             MySqlParameter parametro4 = new MySqlParameter("@desconto", Desconto);
             MySqlParameter parametro5 = new MySqlParameter("@statusvenda", StatusVenda);
 
@@ -56,7 +56,7 @@ namespace Ecommerce.Classes
             {
                 DataTable dt = new DataTable();
                 Conexao.Open();
-                string query = "SELECT Id, DataVenda, Total, ClienteId, FormaPagamento, Desconto, StatusVenda FROM Vendas ORDER BY Id DESC";
+                string query = "SELECT Id, DataVenda, Total, FormaPagamento, Desconto, StatusVenda FROM Venda ORDER BY Id DESC";
                 MySqlCommand comando = new MySqlCommand(query, Conexao);
                 MySqlDataReader leitura = comando.ExecuteReader();
 
@@ -69,13 +69,13 @@ namespace Ecommerce.Classes
                 {
                     while (leitura.Read())
                     {
-                        Venda venda = new Venda
+                        Venda v = new Venda
                         {
                             Id = Convert.ToInt32(leitura["Id"]),
-                            DataVenda = leitura["DatVenda"].ToString(),
-                            Total = float.Parse(leitura["Total"].ToString()),
+                            DataVenda = leitura["DataVenda"].ToString(),
+                            Total = decimal.Parse(leitura["Total"].ToString()),
                             FormaPagamento = leitura["FormaPagamento"].ToString(),
-                            Desconto = float.Parse(leitura["Desconto"].ToString()),
+                            Desconto = decimal.Parse(leitura["Desconto"].ToString()),
                             StatusVenda = leitura["StatusVenda"].ToString()
                         };
                        
@@ -88,7 +88,9 @@ namespace Ecommerce.Classes
         public DataTable PreencherGrid()
         {
             DataTable dataTable = new DataTable();
-            string query = "SELECT Id, Login, Ativo FROM Usuarios order by Id desc";
+            
+
+        string query = "SELECT Id, DataVenda, Total, FormaPagamento, Desconto, StatusVenda FROM Venda order by Id desc";
             Conexao.Open();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
             try

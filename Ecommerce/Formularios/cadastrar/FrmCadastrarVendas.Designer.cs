@@ -34,7 +34,6 @@ namespace Ecommerce.Formularios.cadastrar
             this.label6 = new System.Windows.Forms.Label();
             this.txtDesconto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtFormaPagamento = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,6 +41,7 @@ namespace Ecommerce.Formularios.cadastrar
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.txtDataVenda = new System.Windows.Forms.TextBox();
             this.btncadastro = new System.Windows.Forms.Button();
+            this.cbxformapag = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label4
@@ -89,14 +89,6 @@ namespace Ecommerce.Formularios.cadastrar
             this.label5.Size = new System.Drawing.Size(138, 16);
             this.label5.TabIndex = 83;
             this.label5.Text = "Forma de Pagamento";
-            // 
-            // txtFormaPagamento
-            // 
-            this.txtFormaPagamento.Location = new System.Drawing.Point(34, 255);
-            this.txtFormaPagamento.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.txtFormaPagamento.Name = "txtFormaPagamento";
-            this.txtFormaPagamento.Size = new System.Drawing.Size(244, 22);
-            this.txtFormaPagamento.TabIndex = 82;
             // 
             // txtId
             // 
@@ -165,18 +157,31 @@ namespace Ecommerce.Formularios.cadastrar
             this.btncadastro.UseVisualStyleBackColor = true;
             this.btncadastro.Click += new System.EventHandler(this.btncadastro_Click);
             // 
+            // cbxformapag
+            // 
+            this.cbxformapag.FormattingEnabled = true;
+            this.cbxformapag.Items.AddRange(new object[] {
+            "Débito",
+            "Crédito",
+            "Dinheiro",
+            "Pix"});
+            this.cbxformapag.Location = new System.Drawing.Point(29, 262);
+            this.cbxformapag.Name = "cbxformapag";
+            this.cbxformapag.Size = new System.Drawing.Size(246, 24);
+            this.cbxformapag.TabIndex = 91;
+            // 
             // FrmCadastrarVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(312, 482);
+            this.Controls.Add(this.cbxformapag);
             this.Controls.Add(this.btncadastro);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtStatusVenda);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDesconto);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtFormaPagamento);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -197,7 +202,6 @@ namespace Ecommerce.Formularios.cadastrar
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtDesconto;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtFormaPagamento;
         private System.Windows.Forms.Label txtId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -205,5 +209,6 @@ namespace Ecommerce.Formularios.cadastrar
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.TextBox txtDataVenda;
         private System.Windows.Forms.Button btncadastro;
+        private System.Windows.Forms.ComboBox cbxformapag;
     }
 }

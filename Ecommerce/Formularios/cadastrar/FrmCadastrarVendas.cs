@@ -22,9 +22,9 @@ namespace Ecommerce.Formularios.cadastrar
         {
             Venda p = new Venda();
             p.DataVenda = txtDataVenda.Text;
-            p.Total = Convert.ToInt32(txtTotal);
-            p.FormaPagamento = txtFormaPagamento.Text;
-            p.Desconto = Convert.ToInt32(txtDesconto);
+            p.Total = Convert.ToDecimal(txtTotal.Text);
+            p.FormaPagamento = cbxformapag.Text;
+            p.Desconto = Convert.ToInt32(txtDesconto.Text);
             p.StatusVenda = txtStatusVenda.Text;
             p.Inserir();
             MessageBox.Show("Sucesso", "Cadastrado com sucesso");

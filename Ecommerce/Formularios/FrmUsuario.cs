@@ -37,7 +37,22 @@ namespace Ecommerce.Formularios
             dtgridUsuarios1.DataSource = u.Pesquisar(txtPesquisar1.Text);
         }
 
-        private void dtgridUsuarios1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        
+
+        private void btnNovo1_Click(object sender, EventArgs e)
+        {
+            FrmCadastrarUsuario frm = new FrmCadastrarUsuario();
+            frm.FormClosed += FecharForm;
+            frm.ShowDialog();
+        }
+
+        private void txtPesquisar1_TextChanged(object sender, EventArgs e)
+        {
+            Usuarios u = new Usuarios();
+            dtgridUsuarios1.DataSource = u.Pesquisar(txtPesquisar1.Text);
+        }
+
+        private void dtgridUsuarios1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -47,16 +62,9 @@ namespace Ecommerce.Formularios
                 FrmEditarUsuario editar = new FrmEditarUsuario();
 
                 // Inscreve-se no evento
-               editar.FormClosed += FecharForm;
+                editar.FormClosed += FecharForm;
                 editar.ShowDialog(); // Abre o formulário como um diálogo modal
             }
-        }
-
-        private void btnNovo1_Click(object sender, EventArgs e)
-        {
-            FrmCadastrarUsuario frm = new FrmCadastrarUsuario();
-            frm.FormClosed += FecharForm;
-            frm.ShowDialog();
         }
     }
 }

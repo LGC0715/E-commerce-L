@@ -1,8 +1,10 @@
 ﻿using Ecommerce.Classes;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,10 +15,42 @@ namespace Ecommerce.Formularios.editar
 {
     public partial class FrmEditarProdutos : Form
     {
-        public FrmEditarProdutos()
+        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=ECOMMERCE;User Id=root;Password=");
+        public FrmEditarProdutos(int Id)
         {
+            InitializeComponent();
+
+            string query = "select Id, Nome, Descricao, PrecoUnitrio, Estoque " +
+                "from Produto where Id = @id";
+
             
+            Conexao.Open();
+
+            MySqlCommand comando = new MySqlCommand(query, Conexao);
+
+            comando.Parameters.Add(new MySqlParameter("@id", Id));
+
+            MySqlDataReader Leitura = comando.ExecuteReader();
+
+            if (Leitura.HasRows)
+            {
+                while (Leitura.Read())
+                {
+                  
+                    txtNome.Text = Leitura[0].ToString();
+                    txtDescricao.Text = Leitura[1].ToString();
+                    txtPreco.Text= Leitura[2].ToString();
+                    txtEstoque.Text = Leitura[3].ToString();
+
+
+                };
+
+            }
+            
+            Conexao.Close();
+
         }
+            
 
         private void FrmEditarProdutos_Load(object sender, EventArgs e)
         {
@@ -45,41 +79,7 @@ namespace Ecommerce.Formularios.editar
             this.Close();
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEstoque_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPreco_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtId_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void label1_Click(object sender, EventArgs e)
         {
 

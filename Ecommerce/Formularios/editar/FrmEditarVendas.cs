@@ -2,20 +2,53 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ecommerce.Classes;
+using MySqlConnector;
 
 namespace Ecommerce.Formularios.editar
 {
     public partial class FrmEditarVendas : Form
     {
-        public FrmEditarVendas()
+        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=ECOMMERCE;User Id=root;Password=");
+        public FrmEditarVendas(int id)
         {
             InitializeComponent();
+
+            string query = "select Id, DataVenda, Total, FormaPagamento, Desconto. StatusVenda " +
+                "from Venda where Id = @id";
+
+
+            Conexao.Open();
+
+            MySqlCommand comando = new MySqlCommand(query, Conexao);
+
+            //comando.Parameters.Add(new SqlParameter("@id", Id));
+
+            MySqlDataReader Leitura = comando.ExecuteReader();
+
+            if (Leitura.HasRows)
+            {
+                while (Leitura.Read())
+                {
+
+                    txtDataVenda.Text = Leitura[0].ToString();
+                    txtTotal.Text = Leitura[1].ToString();
+                    cbxformapag.Text = Leitura[2].ToString();
+                    txtDesconto.Text = Leitura[3].ToString();
+                    txtStatusVenda.Text = Leitura[4].ToString();
+
+
+                };
+
+            }
+
+            Conexao.Close();
         }
 
         private void FrmEditarVendas_Load(object sender, EventArgs e)
@@ -36,7 +69,7 @@ namespace Ecommerce.Formularios.editar
             Venda p = new Venda();
             p.DataVenda = txtDataVenda.Text;
             p.Total = Convert.ToInt32(txtTotal);
-            p.FormaPagamento = txtFormaPagamento.Text;
+            p.FormaPagamento = cbxformapag.Text;
             p.Desconto = Convert.ToInt32(txtDesconto); 
             p.StatusVenda = txtStatusVenda.Text;
             p.Inserir();

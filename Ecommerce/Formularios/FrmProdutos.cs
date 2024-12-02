@@ -49,7 +49,8 @@ namespace Ecommerce.Formularios
         }
         private void txtpesquisa_TextChanged(object sender, EventArgs e)
         {
-           dtGridProdutos.DataSource = dao.Pesquisar(txtpesquisa.Text);
+            Produto u = new Produto();
+            dtGridProdutos.DataSource = u.Pesquisar(txtpesquisa.Text);
         }
 
         private void dtGridProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -59,7 +60,7 @@ namespace Ecommerce.Formularios
                 int id = Convert.ToInt32(
                 dtGridProdutos.Rows[e.RowIndex].Cells[0].Value);
 
-              FrmEditarProdutos editar = new FrmEditarProdutos();
+              FrmEditarProdutos editar = new FrmEditarProdutos(id);
 
                 // Inscreve-se no evento
                editar.FormClosed += Fechou_Produto_FormClosed;

@@ -94,6 +94,7 @@
             this.btncadastro.TabIndex = 4;
             this.btncadastro.Text = "Cadastrar";
             this.btncadastro.UseVisualStyleBackColor = true;
+            this.btncadastro.Click += new System.EventHandler(this.btncadastro_Click);
             // 
             // groupBox1
             // 

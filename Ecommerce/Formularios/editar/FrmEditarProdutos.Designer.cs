@@ -52,7 +52,8 @@ namespace Ecommerce.Formularios.editar
             this.label6.Size = new System.Drawing.Size(57, 16);
             this.label6.TabIndex = 59;
             this.label6.Text = "Estoque";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            
+
             // 
             // txtEstoque
             // 
@@ -61,7 +62,7 @@ namespace Ecommerce.Formularios.editar
             this.txtEstoque.Name = "txtEstoque";
             this.txtEstoque.Size = new System.Drawing.Size(244, 22);
             this.txtEstoque.TabIndex = 58;
-            this.txtEstoque.TextChanged += new System.EventHandler(this.txtEstoque_TextChanged);
+            
             // 
             // label5
             // 
@@ -72,7 +73,8 @@ namespace Ecommerce.Formularios.editar
             this.label5.Size = new System.Drawing.Size(43, 16);
             this.label5.TabIndex = 57;
             this.label5.Text = "Preço";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+           
+
             // 
             // txtPreco
             // 
@@ -81,7 +83,7 @@ namespace Ecommerce.Formularios.editar
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(244, 22);
             this.txtPreco.TabIndex = 56;
-            this.txtPreco.TextChanged += new System.EventHandler(this.txtPreco_TextChanged);
+            
             // 
             // txtId
             // 
@@ -92,7 +94,7 @@ namespace Ecommerce.Formularios.editar
             this.txtId.Size = new System.Drawing.Size(55, 16);
             this.txtId.TabIndex = 55;
             this.txtId.Text = "label_id";
-            this.txtId.Click += new System.EventHandler(this.txtId_Click);
+            
             // 
             // label3
             // 
@@ -103,7 +105,7 @@ namespace Ecommerce.Formularios.editar
             this.label3.Size = new System.Drawing.Size(18, 16);
             this.label3.TabIndex = 54;
             this.label3.Text = "Id";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            
             // 
             // label2
             // 
@@ -114,7 +116,7 @@ namespace Ecommerce.Formularios.editar
             this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 53;
             this.label2.Text = "Nome";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            
             // 
             // label1
             // 
