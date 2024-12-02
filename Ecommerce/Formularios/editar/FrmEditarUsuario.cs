@@ -13,11 +13,11 @@ namespace Ecommerce.Formularios.editar
 {
     public partial class FrmEditarUsuario : Form
     {
-        public FrmEditarUsuario()
+        public FrmEditarUsuario(int id)
         {
             InitializeComponent();
             Usuarios usuarios = new Usuarios();
-            //usuarios.PesquisarPorId(id);
+            usuarios.PesquisarPorId(id);
             txtId.Text = usuarios.Id.ToString();
             txtLogin.Text = usuarios.Login;
             txtSenha.Text = usuarios.Senha;

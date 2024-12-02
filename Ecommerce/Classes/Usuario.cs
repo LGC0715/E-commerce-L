@@ -89,10 +89,10 @@ namespace Ecommerce   .Classes
             string query = "update Usuarios set Login = @login, Senha = @senha, Ativo = @ativo WHERE  Id = @id";
             Conexao.Open();
             MySqlCommand comando = new MySqlCommand(query, Conexao);
-            comando.Parameters.Add(new SqlParameter("@login", Login));
-            comando.Parameters.Add(new SqlParameter("@senha", Senha));
-            comando.Parameters.Add(new SqlParameter("@ativo", Ativo));
-            comando.Parameters.Add(new SqlParameter("@id", Id));
+            comando.Parameters.Add(new MySqlParameter("@login", Login));
+            comando.Parameters.Add(new MySqlParameter("@senha", Senha));
+            comando.Parameters.Add(new MySqlParameter("@ativo", Ativo));
+            comando.Parameters.Add(new MySqlParameter("@id", Id));
             int resposta = comando.ExecuteNonQuery();
             if (resposta == 1)
             {

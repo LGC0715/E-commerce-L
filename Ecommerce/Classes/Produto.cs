@@ -8,6 +8,7 @@ namespace Ecommerce.Classes
 {
     public class Produto
     {
+        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=ECOMMERCE;User Id=root;Password=");
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
@@ -15,7 +16,7 @@ namespace Ecommerce.Classes
         public int Estoque { get; set; }
 
 
-        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=ECOMMERCE;User Id=root;Password=");
+ 
         public void Inserir()
         {
             Conexao.Open();
@@ -122,18 +123,27 @@ namespace Ecommerce.Classes
             Conexao.Close();
             return dt;
         }
-
-        public void Atualizar(Produto produto)
+        
+        public void Editar()
         {
             Conexao.Open();
             string query = "UPDATE Produto SET Nome = @nome, Descricao = @descricao, PrecoUnitario = @preco, Estoque = @estoque WHERE Id = @id";
             MySqlCommand comando = new MySqlCommand(query, Conexao);
-            comando.Parameters.Add(new MySqlParameter("@id", produto.Id));
-            comando.Parameters.Add(new MySqlParameter("@nome", produto.Nome));
-            comando.Parameters.Add(new MySqlParameter("@descricao", produto.Descricao));
-            comando.Parameters.Add(new MySqlParameter("@preco", produto.PrecoUnitario));
-            comando.Parameters.Add(new MySqlParameter("@estoque", produto.Estoque));
-            comando.ExecuteNonQuery();
+            comando.Parameters.Add(new MySqlParameter("@id", Id));
+            comando.Parameters.Add(new MySqlParameter("@nome", Nome));
+            comando.Parameters.Add(new MySqlParameter("@descricao", Descricao));
+            comando.Parameters.Add(new MySqlParameter("@preco", PrecoUnitario));
+            comando.Parameters.Add(new MySqlParameter("@estoque", Estoque));
+            int resposta = comando.ExecuteNonQuery();
+            
+            if (resposta == 1)
+            {
+                MessageBox.Show("Usuário Atualizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Erro ao atualizar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             Conexao.Close();
         }
 
@@ -146,14 +156,35 @@ namespace Ecommerce.Classes
             int resposta = comando.ExecuteNonQuery();
             if (resposta == 1)
             {
-                MessageBox.Show("Usuário Excluído com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Produto Excluído com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 MessageBox.Show("Erro ao excluir", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+        public void PesquisarPorId(int id)
+        {
+            DataTable dataTable = new DataTable();
+            Conexao.Open();
+            string query = "SELECT Id, Nome, Descricao, PrecoUnitario, Estoque  FROM Produto Where Id = @id Order by Id desc";
+            MySqlCommand Comando = new MySqlCommand(query, Conexao);
+            Comando.Parameters.AddWithValue("@id", id);
+            MySqlDataReader resultado = Comando.ExecuteReader();
+
+            if (resultado.Read())
+            {
+                Id = resultado.GetInt32(0);
+                Nome = resultado.GetString(1);
+                Descricao = resultado.GetString(2);
+                PrecoUnitario = resultado.GetDecimal(3);
+                Estoque = resultado.GetInt32(4);
+            }
+
+            Conexao.Close();
+            
+    }
+
     }
 }
    

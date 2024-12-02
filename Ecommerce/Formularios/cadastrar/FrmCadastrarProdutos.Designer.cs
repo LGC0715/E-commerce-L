@@ -30,8 +30,6 @@ namespace Ecommerce.Formularios.cadastrar
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDescricao = new System.Windows.Forms.TextBox();
@@ -49,26 +47,6 @@ namespace Ecommerce.Formularios.cadastrar
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(80, 78);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 16);
-            this.label4.TabIndex = 44;
-            this.label4.Text = "label_id";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(49, 78);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 16);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "Id";
             // 
             // label2
             // 
@@ -158,10 +136,10 @@ namespace Ecommerce.Formularios.cadastrar
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 485);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 483);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(333, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(333, 24);
             this.statusStrip1.TabIndex = 49;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -188,7 +166,7 @@ namespace Ecommerce.Formularios.cadastrar
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(333, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(333, 30);
             this.menuStrip1.TabIndex = 51;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -210,8 +188,6 @@ namespace Ecommerce.Formularios.cadastrar
             this.Controls.Add(this.txtEstoque);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPreco);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDescricao);
@@ -231,9 +207,6 @@ namespace Ecommerce.Formularios.cadastrar
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDescricao;

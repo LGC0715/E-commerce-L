@@ -33,7 +33,6 @@ namespace Ecommerce.Formularios.editar
             this.txtEstoque = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPreco = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@ namespace Ecommerce.Formularios.editar
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btn_Excluir = new System.Windows.Forms.Button();
             this.btn_Salvar = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label6
@@ -52,8 +52,6 @@ namespace Ecommerce.Formularios.editar
             this.label6.Size = new System.Drawing.Size(57, 16);
             this.label6.TabIndex = 59;
             this.label6.Text = "Estoque";
-            
-
             // 
             // txtEstoque
             // 
@@ -62,7 +60,6 @@ namespace Ecommerce.Formularios.editar
             this.txtEstoque.Name = "txtEstoque";
             this.txtEstoque.Size = new System.Drawing.Size(244, 22);
             this.txtEstoque.TabIndex = 58;
-            
             // 
             // label5
             // 
@@ -73,8 +70,6 @@ namespace Ecommerce.Formularios.editar
             this.label5.Size = new System.Drawing.Size(43, 16);
             this.label5.TabIndex = 57;
             this.label5.Text = "Preço";
-           
-
             // 
             // txtPreco
             // 
@@ -83,18 +78,6 @@ namespace Ecommerce.Formularios.editar
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(244, 22);
             this.txtPreco.TabIndex = 56;
-            
-            // 
-            // txtId
-            // 
-            this.txtId.AutoSize = true;
-            this.txtId.Location = new System.Drawing.Point(72, 25);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(55, 16);
-            this.txtId.TabIndex = 55;
-            this.txtId.Text = "label_id";
-            
             // 
             // label3
             // 
@@ -105,7 +88,6 @@ namespace Ecommerce.Formularios.editar
             this.label3.Size = new System.Drawing.Size(18, 16);
             this.label3.TabIndex = 54;
             this.label3.Text = "Id";
-            
             // 
             // label2
             // 
@@ -116,7 +98,6 @@ namespace Ecommerce.Formularios.editar
             this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 53;
             this.label2.Text = "Nome";
-            
             // 
             // label1
             // 
@@ -150,7 +131,7 @@ namespace Ecommerce.Formularios.editar
             // btn_Excluir
             // 
             this.btn_Excluir.Location = new System.Drawing.Point(157, 380);
-            this.btn_Excluir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Excluir.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Excluir.Name = "btn_Excluir";
             this.btn_Excluir.Size = new System.Drawing.Size(107, 28);
             this.btn_Excluir.TabIndex = 61;
@@ -161,7 +142,7 @@ namespace Ecommerce.Formularios.editar
             // btn_Salvar
             // 
             this.btn_Salvar.Location = new System.Drawing.Point(43, 380);
-            this.btn_Salvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Salvar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Salvar.Name = "btn_Salvar";
             this.btn_Salvar.Size = new System.Drawing.Size(107, 28);
             this.btn_Salvar.TabIndex = 60;
@@ -169,18 +150,27 @@ namespace Ecommerce.Formularios.editar
             this.btn_Salvar.UseVisualStyleBackColor = true;
             this.btn_Salvar.Click += new System.EventHandler(this.btn_Salvar_Click);
             // 
+            // txtId
+            // 
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(68, 25);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(65, 22);
+            this.txtId.TabIndex = 62;
+            // 
             // FrmEditarProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 450);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.btn_Excluir);
             this.Controls.Add(this.btn_Salvar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtEstoque);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPreco);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -201,7 +191,6 @@ namespace Ecommerce.Formularios.editar
         private System.Windows.Forms.TextBox txtEstoque;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPreco;
-        private System.Windows.Forms.Label txtId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -209,5 +198,6 @@ namespace Ecommerce.Formularios.editar
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Button btn_Excluir;
         private System.Windows.Forms.Button btn_Salvar;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

@@ -15,40 +15,18 @@ namespace Ecommerce.Formularios.editar
 {
     public partial class FrmEditarProdutos : Form
     {
-        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=ECOMMERCE;User Id=root;Password=");
-        public FrmEditarProdutos(int Id)
+        public FrmEditarProdutos(int id)
         {
+            
             InitializeComponent();
-
-            string query = "select Id, Nome, Descricao, PrecoUnitario, Estoque " +
-                "from Produto where Id = @id";
-
-            
-            Conexao.Open();
-
-            MySqlCommand comando = new MySqlCommand(query, Conexao);
-
-            comando.Parameters.Add(new MySqlParameter("@id", Id));
-
-            MySqlDataReader Leitura = comando.ExecuteReader();
-
-            if (Leitura.HasRows)
-            {
-                while (Leitura.Read())
-                {
-                  
-                    txtNome.Text = Leitura[0].ToString();
-                    txtDescricao.Text = Leitura[1].ToString();
-                    txtPreco.Text= Leitura[2].ToString();
-                    txtEstoque.Text = Leitura[3].ToString();
-
-
-                };
-
-            }
-            
-            Conexao.Close();
-
+            Produto p = new Produto();
+            p.PesquisarPorId(id);
+            txtId.Text = p.Id.ToString();
+            txtNome.Text = p.Nome;
+            txtDescricao.Text = p.Descricao;
+            txtPreco.Text = p.PrecoUnitario.ToString();
+            txtEstoque.Text = p.Estoque.ToString();
+            p = null;
         }
             
 
@@ -62,13 +40,14 @@ namespace Ecommerce.Formularios.editar
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
             Produto p = new Produto();
+            p.Id = Convert.ToInt32(txtId.Text);
             p.Nome = txtNome.Text;
             p.Descricao = txtDescricao.Text;
             p.PrecoUnitario = Convert.ToDecimal(txtPreco.Text);
-            p.Estoque = Convert.ToInt32(txtEstoque);
-            p.Inserir();
-            MessageBox.Show("Sucesso", "Cadastrado com sucesso");
-            Close();
+            p.Estoque = Convert.ToInt32(txtEstoque.Text);
+            p.Editar();
+            p = null;
+            this.Close();
         }
 
         private void btn_Excluir_Click(object sender, EventArgs e)

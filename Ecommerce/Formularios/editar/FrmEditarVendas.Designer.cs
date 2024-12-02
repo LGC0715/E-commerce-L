@@ -34,7 +34,6 @@ namespace Ecommerce.Formularios.editar
             this.label6 = new System.Windows.Forms.Label();
             this.txtDesconto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@ namespace Ecommerce.Formularios.editar
             this.label4 = new System.Windows.Forms.Label();
             this.txtStatusVenda = new System.Windows.Forms.TextBox();
             this.cbxformapag = new System.Windows.Forms.ComboBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn_Excluir
@@ -97,17 +97,6 @@ namespace Ecommerce.Formularios.editar
             this.label5.TabIndex = 69;
             this.label5.Text = "Forma de Pagamento";
             this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // txtId
-            // 
-            this.txtId.AutoSize = true;
-            this.txtId.Location = new System.Drawing.Point(70, 26);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(55, 16);
-            this.txtId.TabIndex = 67;
-            this.txtId.Text = "label_id";
-            this.txtId.Click += new System.EventHandler(this.txtId_Click);
             // 
             // label3
             // 
@@ -193,11 +182,21 @@ namespace Ecommerce.Formularios.editar
             this.cbxformapag.Size = new System.Drawing.Size(246, 24);
             this.cbxformapag.TabIndex = 92;
             // 
+            // txtId
+            // 
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(66, 26);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(65, 22);
+            this.txtId.TabIndex = 93;
+            // 
             // FrmEditarVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(310, 509);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.cbxformapag);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtStatusVenda);
@@ -206,7 +205,6 @@ namespace Ecommerce.Formularios.editar
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDesconto);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -227,7 +225,6 @@ namespace Ecommerce.Formularios.editar
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtDesconto;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label txtId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -236,5 +233,6 @@ namespace Ecommerce.Formularios.editar
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtStatusVenda;
         private System.Windows.Forms.ComboBox cbxformapag;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

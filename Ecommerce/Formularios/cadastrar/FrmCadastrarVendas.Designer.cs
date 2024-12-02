@@ -34,8 +34,6 @@ namespace Ecommerce.Formularios.cadastrar
             this.label6 = new System.Windows.Forms.Label();
             this.txtDesconto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
@@ -89,26 +87,6 @@ namespace Ecommerce.Formularios.cadastrar
             this.label5.Size = new System.Drawing.Size(138, 16);
             this.label5.TabIndex = 83;
             this.label5.Text = "Forma de Pagamento";
-            // 
-            // txtId
-            // 
-            this.txtId.AutoSize = true;
-            this.txtId.Location = new System.Drawing.Point(65, 24);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(55, 16);
-            this.txtId.TabIndex = 81;
-            this.txtId.Text = "label_id";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 24);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 16);
-            this.label3.TabIndex = 80;
-            this.label3.Text = "Id";
             // 
             // label2
             // 
@@ -182,8 +160,6 @@ namespace Ecommerce.Formularios.cadastrar
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtDesconto);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTotal);
@@ -202,8 +178,6 @@ namespace Ecommerce.Formularios.cadastrar
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtDesconto;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label txtId;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTotal;

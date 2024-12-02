@@ -15,21 +15,14 @@ namespace Ecommerce.Formularios
 {
     public partial class FrmProdutos : Form
     {
-        DataTable dados;
-        Produto dao = new Produto();
+        
 
         public FrmProdutos()
         {
+            
             InitializeComponent();
-            dados = new DataTable();
-            foreach (var atributos in typeof(Produto).GetProperties())
-            {
-                dados.Columns.Add(atributos.Name);
-            }
-
-            dados = dao.PreencherGrid();
-
-            dtGridProdutos.DataSource = dados;
+            Produto u = new Produto();
+            dtGridProdutos.DataSource = u.PreencherGrid();
         }
 
 
@@ -44,8 +37,8 @@ namespace Ecommerce.Formularios
         }
         private void Fechou_Produto_FormClosed(object sender, FormClosedEventArgs e)
         {
-            dados = dao.PreencherGrid();
-            dtGridProdutos.DataSource = dados;
+            Produto u = new Produto();
+            dtGridProdutos.DataSource = u.PreencherGrid();
         }
         private void txtpesquisa_TextChanged(object sender, EventArgs e)
         {
