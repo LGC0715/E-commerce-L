@@ -21,7 +21,7 @@ namespace Ecommerce.Formularios.cadastrar
         private void btncadastro_Click(object sender, EventArgs e)
         {
             Venda p = new Venda();
-            p.DataVenda = txtDataVenda.Text;
+            p.DataVenda = DateTime.Parse(txtDataVenda.Text);
             p.Total = Convert.ToDecimal(txtTotal.Text);
             p.FormaPagamento = cbxformapag.Text;
             p.Desconto = Convert.ToInt32(txtDesconto.Text);

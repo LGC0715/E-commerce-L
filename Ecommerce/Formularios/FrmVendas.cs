@@ -15,17 +15,8 @@ namespace Ecommerce.Formularios
         public FrmVendas()
         {
             InitializeComponent();
-            dados = new DataTable();
-
-            // Adiciona colunas ao DataTable com base nas propriedades da classe Venda
-            foreach (var atributos in typeof(Venda).GetProperties())
-            {
-                dados.Columns.Add(atributos.Name);
-            }
-
-            // Obtém os dados das vendas e exibe na grade
-            dados = dao.ObterVendas();
-            dtGridVenda.DataSource = dados;
+            Venda u = new Venda();
+            dtGridVenda.DataSource = u.PreencherGrid();
         }
 
         // Evento para o botão de adicionar nova venda
@@ -41,8 +32,8 @@ namespace Ecommerce.Formularios
         // Atualiza a lista de vendas ao fechar o formulário de edição ou cadastro
         private void Fechou_Venda_FormClosed(object sender, FormClosedEventArgs e)
         {
-            dados = dao.ObterVendas();
-            dtGridVenda.DataSource = dados;
+            Venda u = new Venda();
+            dtGridVenda.DataSource = u.PreencherGrid();
         }
 
         // Evento para pesquisar vendas ao digitar na caixa de texto

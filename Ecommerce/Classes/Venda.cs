@@ -16,7 +16,7 @@ namespace Ecommerce.Classes
        
 
         public int Id { get; set; }
-        public string DataVenda { get; set; }
+        public DateTime DataVenda { get; set; }
         public decimal Total { get; set; }
         public string FormaPagamento { get; set; } 
         public decimal Desconto { get; set; } 
@@ -52,39 +52,7 @@ namespace Ecommerce.Classes
             Conexao.Close();
         }
 
-            public DataTable ObterVendas()
-            {
-                DataTable dt = new DataTable();
-                Conexao.Open();
-                string query = "SELECT Id, DataVenda, Total, FormaPagamento, Desconto, StatusVenda FROM Venda ORDER BY Id DESC";
-                MySqlCommand comando = new MySqlCommand(query, Conexao);
-                MySqlDataReader leitura = comando.ExecuteReader();
-
-                foreach (var propriedade in typeof(Venda).GetProperties())
-                {
-                    dt.Columns.Add(propriedade.Name);
-                }
-
-                if (leitura.HasRows)
-                {
-                    while (leitura.Read())
-                    {
-                        Venda v = new Venda
-                        {
-                            Id = Convert.ToInt32(leitura["Id"]),
-                            DataVenda = leitura["DataVenda"].ToString(),
-                            Total = decimal.Parse(leitura["Total"].ToString()),
-                            FormaPagamento = leitura["FormaPagamento"].ToString(),
-                            Desconto = decimal.Parse(leitura["Desconto"].ToString()),
-                            StatusVenda = leitura["StatusVenda"].ToString()
-                        };
-                       
-                    }
-                }
-
-                Conexao.Close();
-                return dt;
-            }
+        
         public DataTable PreencherGrid()
         {
             DataTable dataTable = new DataTable();
@@ -177,5 +145,28 @@ namespace Ecommerce.Classes
                 MessageBox.Show("Erro ao excluir", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public void PesquisarPorId(int id)
+        {
+            DataTable dataTable = new DataTable();
+            Conexao.Open();
+            string query = "SELECT Id, DataVenda, Total, FormaPagamento, Desconto, StatusVenda  FROM Usuarios Where Id = @id Order by Id desc";
+            MySqlCommand Comando = new MySqlCommand(query, Conexao);
+            Comando.Parameters.AddWithValue("@id", id);
+            MySqlDataReader resultado = Comando.ExecuteReader();
+
+            if (resultado.Read())
+            {
+                Id = resultado.GetInt32(0); 
+                DataVenda = resultado.GetDateTime(1);
+                Total = resultado.GetDecimal(1); // Tipo decimal (ou float, dependendo da precisão desejada)
+                FormaPagamento = resultado.GetString(2); // Tipo string (assumindo que é um texto, como "Cartão", "Dinheiro", etc.)
+                Desconto = resultado.GetDecimal(3); // Tipo decimal (ou float, dependendo da precisão desejada)
+                StatusVenda = resultado.GetString(4); // Tipo bool
+
+            }
+
+            Conexao.Close();
+            
+    }
     }
     }

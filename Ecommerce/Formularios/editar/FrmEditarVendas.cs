@@ -30,7 +30,7 @@ namespace Ecommerce.Formularios.editar
 
             //comando.Parameters.Add(new SqlParameter("@id", Id));
 
-            MySqlDataReader Leitura = comando.ExecuteReader();
+             MySqlDataReader Leitura = comando.ExecuteReader();
 
             if (Leitura.HasRows)
             {
@@ -67,7 +67,7 @@ namespace Ecommerce.Formularios.editar
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
             Venda p = new Venda();
-            p.DataVenda = txtDataVenda.Text;
+            p.DataVenda = DateTime.Parse(txtDataVenda.Text);
             p.Total = Convert.ToInt32(txtTotal);
             p.FormaPagamento = cbxformapag.Text;
             p.Desconto = Convert.ToInt32(txtDesconto); 
