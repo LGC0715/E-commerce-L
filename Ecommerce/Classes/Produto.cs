@@ -54,37 +54,6 @@ namespace Ecommerce.Classes
             Conexao.Close();
             return dataTable;
         }
-        //public DataTable ObterProdutos()
-        //{
-        //    DataTable dt = new DataTable();
-        //    Conexao.Open();
-        //    string query = "SELECT Id, Nome, Descricao, PrecoUnitario, Estoque FROM Produto ORDER BY Id DESC";
-        //    MySqlCommand comando = new MySqlCommand(query, Conexao);
-        //    MySqlDataReader leitura = comando.ExecuteReader();
-
-        //    foreach (var propriedade in typeof(Produto).GetProperties())
-        //    {
-        //        dt.Columns.Add(propriedade.Name);
-        //    }
-
-        //    if (leitura.HasRows)
-        //    {
-        //        while (leitura.Read())
-        //        {
-        //            Produto p = new Produto
-        //            {
-        //                Id = Convert.ToInt32(leitura["Id"]),
-        //                Nome = leitura["Nome"].ToString(),
-        //                Descricao = leitura["Descricao"].ToString(),
-        //                PrecoUnitario = decimal.Parse(leitura["PrecoUnitario"].ToString()),
-        //                Estoque = Convert.ToInt32(leitura["Estoque"])
-        //            };
-        //        }
-        //    }
-
-        //    Conexao.Close();
-        //    return dt;
-        //}
        
         public DataTable Pesquisar(string pesquisa)
         {

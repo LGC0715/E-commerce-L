@@ -11,17 +11,17 @@ namespace Ecommerce.Classes
 {
     public class Login
     {
-        private MySqlConnection Conexao = new MySqlConnection("Server=LS05MPF;Database=AULA_DS;User Id=sa;Password=admsasql;");
+        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=Ecommerce;User Id=root;Password=");
         public string Usuario { get; set; }
         public string Senha { get; set; }
 
         public bool Logar()
         {
-            string query = "Select Login, Id from usuarios where Senha = @senha AND Login = @login";
+            string query = "Select Login, Id from usuario where Senha = @senha AND Login = @login";
             Conexao.Open();
             MySqlCommand comando = new MySqlCommand(query, Conexao);
-            comando.Parameters.Add(new SqlParameter("@senha", Senha));
-            comando.Parameters.Add(new SqlParameter("@login", Usuario));
+            comando.Parameters.Add(new MySqlParameter("@senha", Senha));
+            comando.Parameters.Add(new MySqlParameter("@login", Usuario));
             MySqlDataReader resultado = comando.ExecuteReader();
 
             if (resultado.HasRows)

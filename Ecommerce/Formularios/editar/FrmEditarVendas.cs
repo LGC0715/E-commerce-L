@@ -79,27 +79,60 @@ namespace Ecommerce.Formularios.editar
             dtgridProdutos.DataSource = u.Pesquisar(txtpesquisa.Text);
         }
 
+
+
+
         private void dtgridProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                int id = Convert.ToInt32(
-                dtgridProdutos.Rows[e.RowIndex].Cells[0].Value);
+                // Captura os valores da linha selecionada
+                int id = Convert.ToInt32(dtgridProdutos.Rows[e.RowIndex].Cells["Id"].Value);
+                string descricao = dtgridProdutos.Rows[e.RowIndex].Cells["Descricao"].Value.ToString();
+                decimal precoUnitario = Convert.ToDecimal(dtgridProdutos.Rows[e.RowIndex].Cells["PrecoUnitario"].Value);
+                int quantidade = 1; // Por padrão, 1 item é adicionado
 
-                VendaProduto p = new VendaProduto();
-                p.Nome = txtNome.Text;
-                p.Descricao = txtDescricao.Text;
-                p.PrecoUnitario = Convert.ToDecimal(txtPreco.Text);
-                p.Estoque = Convert.ToInt32(txtEstoque.Text);
+                // Cria o objeto de venda
+                VendaProduto p = new VendaProduto
+                {
+                    VendaId = int.Parse(txtId.Text), // Certifique-se de que txtId tem o ID da venda
+                    ProdutoId = id,
+                    PrecoUnitario = precoUnitario,
+                    Quantidade = quantidade
+                };
+
+                // Insere no banco de dados
                 p.Inserir();
-                MessageBox.Show("Sucesso", "Cadastrado com sucesso");
-                Close();
 
-         
-    }
+                // Mensagem de sucesso
+                MessageBox.Show("Produto adicionado com sucesso!", "Sucesso");
 
-            
+                // Inicializa a lista se for nula
+                List<VendaProduto> listaVendaProduto;
+
+                if (dtgridVendaProduto.DataSource == null || !(dtgridVendaProduto.DataSource is List<VendaProduto>))
+                {
+                    listaVendaProduto = new List<VendaProduto>();
+                }
+                else
+                {
+                    // Obtém a lista existente
+                    listaVendaProduto = (List<VendaProduto>)dtgridVendaProduto.DataSource;
+                }
+
+                // Adiciona o novo produto à lista
+                listaVendaProduto.Add(p);
+
+                // Atualiza o DataGridView
+                dtgridVendaProduto.DataSource = null;
+                dtgridVendaProduto.DataSource = listaVendaProduto;
+            }
         }
+
+
+
+
+
 
         private void dtgridProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

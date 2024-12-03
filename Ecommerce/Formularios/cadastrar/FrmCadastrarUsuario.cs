@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ecommerce.Classes;
 
+
 namespace Ecommerce.Formularios.cadastrar
 {
     public partial class FrmCadastrarUsuario : Form

@@ -27,7 +27,14 @@ namespace MapaSala
             Visible = true;
         }
 
-        private void btnEntrar_Click_1(object sender, EventArgs e)
+       
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void salvar_Click(object sender, EventArgs e)
         {
             login.Usuario = txtLogin.Text;
             login.Senha = txtSenha.Text;
@@ -43,27 +50,7 @@ namespace MapaSala
                 MessageBox.Show("Usuário e senha inválidos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void salvar_Click(object sender, EventArgs e)
-        {
-
-        }
-        // Evento ao passar o mouse sobre o botão
-        private void btn_Entrar_MouseEnter(object sender, EventArgs e)
-        {
-            btn_Entrar.BackColor = System.Drawing.Color.LightBlue; // Escolha a cor desejada
-        }
-
-        // Evento ao tirar o mouse do botão
-        private void btn_Entrar_MouseLeave(object sender, EventArgs e)
-        {
-            btn_Entrar.BackColor = System.Drawing.Color.White; // Retorna à cor original
-        }
+        
 
     }
 }

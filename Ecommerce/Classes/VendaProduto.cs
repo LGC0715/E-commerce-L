@@ -9,28 +9,63 @@ namespace Ecommerce.Classes
     {
         public int VendaId { get; set; }
         public int ProdutoId { get; set; }
-        public float PrecoUnitario { get; set; }
+        public decimal PrecoUnitario { get; set; }
         public int Quantidade { get; set; }
-        public float Subtotal => Quantidade * PrecoUnitario;
+        public decimal Subtotal => Quantidade * PrecoUnitario;
 
         private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=ECOMMERCE;User Id=root;Password=");
 
         public void Inserir()
         {
-            Conexao.Open();
-            string query = "INSERT INTO VendaProdutos (VendaId, ProdutoId, Quantidade, PrecoUnitario) VALUES (@vendaId, @produtoId, @quantidade, @precoUnitario)";
-            MySqlCommand comando = new MySqlCommand(query, Conexao);
+            try
+            {
+                Conexao.Open();
 
-            comando.Parameters.AddWithValue("@vendaId", VendaId);
-            comando.Parameters.AddWithValue("@produtoId", ProdutoId);
-            comando.Parameters.AddWithValue("@quantidade", Quantidade);
-            comando.Parameters.AddWithValue("@precoUnitario", PrecoUnitario);
+                // Verifica se já existe um registro com a mesma chave primária
+                string queryVerificar = "SELECT COUNT(*) FROM VendaProduto WHERE VendaId = @vendaId AND ProdutoId = @produtoId";
+                MySqlCommand comandoVerificar = new MySqlCommand(queryVerificar, Conexao);
+                comandoVerificar.Parameters.AddWithValue("@vendaId", VendaId);
+                comandoVerificar.Parameters.AddWithValue("@produtoId", ProdutoId);
 
-            comando.ExecuteNonQuery();
-            Conexao.Close();
+                int existe = Convert.ToInt32(comandoVerificar.ExecuteScalar());
+
+                if (existe > 0)
+                {
+                    // Atualiza o registro existente
+                    string queryAtualizar = "UPDATE VendaProduto SET Quantidade = Quantidade + @quantidade, PrecoUnitario = @precoUnitario WHERE VendaId = @vendaId AND ProdutoId = @produtoId";
+                    MySqlCommand comandoAtualizar = new MySqlCommand(queryAtualizar, Conexao);
+                    comandoAtualizar.Parameters.AddWithValue("@vendaId", VendaId);
+                    comandoAtualizar.Parameters.AddWithValue("@produtoId", ProdutoId);
+                    comandoAtualizar.Parameters.AddWithValue("@quantidade", Quantidade);
+                    comandoAtualizar.Parameters.AddWithValue("@precoUnitario", PrecoUnitario);
+                    comandoAtualizar.ExecuteNonQuery();
+                }
+                else
+                {
+                    // Insere um novo registro
+                    string queryInserir = "INSERT INTO VendaProduto (VendaId, ProdutoId, Quantidade, PrecoUnitario) VALUES (@vendaId, @produtoId, @quantidade, @precoUnitario)";
+                    MySqlCommand comandoInserir = new MySqlCommand(queryInserir, Conexao);
+                    comandoInserir.Parameters.AddWithValue("@vendaId", VendaId);
+                    comandoInserir.Parameters.AddWithValue("@produtoId", ProdutoId);
+                    comandoInserir.Parameters.AddWithValue("@quantidade", Quantidade);
+                    comandoInserir.Parameters.AddWithValue("@precoUnitario", PrecoUnitario);
+                    comandoInserir.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Operação realizada com sucesso!", "Sucesso");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}", "Erro");
+            }
+            finally
+            {
+                Conexao.Close();
+            }
         }
 
-        
+
+
         public DataTable PreencherGrid()
         {
             DataTable dataTable = new DataTable();

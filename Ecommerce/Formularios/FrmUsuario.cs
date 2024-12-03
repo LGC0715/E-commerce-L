@@ -66,5 +66,10 @@ namespace Ecommerce.Formularios
                 editar.ShowDialog(); // Abre o formulário como um diálogo modal
             }
         }
+
+        private void dtgridUsuarios1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -54,7 +54,7 @@ namespace Ecommerce.Classes
         public void Editar()
         {
             Conexao.Open();
-            string query = "UPDATE Venda SET DataVenda = @datavenda, Total = @total, FormaPagamento = @formapagamento, Desconto = @desconto, StatusVenda = @StausVenda WHERE Id = @id";
+            string query = "UPDATE Venda SET DataVenda = @datavenda, Total = @total, FormaPagamento = @formapagamento, Desconto = @desconto, StatusVenda = @statusvenda WHERE Id = @id";
             MySqlCommand comando = new MySqlCommand(query, Conexao);
             comando.Parameters.Add(new MySqlParameter("@id", Id));
             comando.Parameters.Add(new MySqlParameter("@datavenda", DataVenda));
@@ -74,6 +74,7 @@ namespace Ecommerce.Classes
             }
             Conexao.Close();
         }
+
 
 
         public DataTable PreencherGrid()

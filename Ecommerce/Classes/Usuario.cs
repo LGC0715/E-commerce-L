@@ -42,7 +42,7 @@ namespace Ecommerce   .Classes
         public DataTable PreencherGrid()
         {
             DataTable dataTable = new DataTable();
-            string query = "SELECT Id, Login, Ativo FROM Usuarios order by Id desc";
+            string query = "SELECT Id, Login, Ativo FROM Usuario order by Id desc";
             Conexao.Open();
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
             try
@@ -59,34 +59,31 @@ namespace Ecommerce   .Classes
 
         public DataTable Pesquisar(string pesquisa)
         {
-            DataTable dataTable = new DataTable();
+            DataTable dt = new DataTable();
             Conexao.Open();
-            string query = "";
-            if (string.IsNullOrEmpty(pesquisa))
-            {
-                query = "SELECT Id, Login, Ativo Nome FROM Usuarios order by Id desc";
-            }
-            else
-            {
-                query = "SELECT Id, Login, Ativo Nome FROM Usuarios Where Login like '%" + pesquisa + "%' Order by Id desc";
-            }
+
+            string query = string.IsNullOrEmpty(pesquisa)
+                ? "SELECT Id, Login, Senha, Ativo FROM Usuario ORDER BY Id DESC"
+                : "SELECT Id, Login, Senha, Ativo FROM Usuario WHERE LoginLIKE '%" + pesquisa + "%' ORDER BY Id DESC";
+
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
             try
             {
-                adapter.Fill(dataTable);
+                adapter.Fill(dt);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao acessar os dados para preencher grid: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Conexao.Close();
-            return dataTable;
+            return dt;
+            
         }
 
         public void Editar()
         {
-            string query = "update Usuarios set Login = @login, Senha = @senha, Ativo = @ativo WHERE  Id = @id";
+            string query = "update Usuario set Login = @login, Senha = @senha, Ativo = @ativo WHERE  Id = @id";
             Conexao.Open();
             MySqlCommand comando = new MySqlCommand(query, Conexao);
             comando.Parameters.Add(new MySqlParameter("@login", Login));
@@ -125,7 +122,7 @@ namespace Ecommerce   .Classes
         {
             DataTable dataTable = new DataTable();
             Conexao.Open();
-            string query = "SELECT Id, Login, Senha, Ativo Nome FROM Usuarios Where Id = @id Order by Id desc";
+            string query = "SELECT Id, Login, Senha, Ativo Nome FROM Usuario Where Id = @id Order by Id desc";
             MySqlCommand Comando = new MySqlCommand(query, Conexao);
             Comando.Parameters.AddWithValue("@id", id);
             MySqlDataReader resultado = Comando.ExecuteReader();

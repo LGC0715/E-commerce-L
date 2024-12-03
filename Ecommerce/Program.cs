@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ecommerce.Formularios;
+using MapaSala;
 
 namespace Ecommerce
 {
@@ -17,7 +18,7 @@ namespace Ecommerce
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPrincipal());
+            Application.Run(new frmLogin());
         }
     }
 }
