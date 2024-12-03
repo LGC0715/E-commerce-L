@@ -30,38 +30,7 @@ namespace Ecommerce.Classes
             Conexao.Close();
         }
 
-        public DataTable ObterVendaProdutos()
-        {
-            DataTable dt = new DataTable();
-            Conexao.Open();
-            string query = "SELECT VendaId, ProdutoId, Quantidade, PrecoUnitario, (Quantidade * PrecoUnitario) AS Subtotal FROM VendaProdutos ORDER BY VendaId DESC";
-            MySqlCommand comando = new MySqlCommand(query, Conexao);
-            MySqlDataReader leitura = comando.ExecuteReader();
-
-            dt.Columns.Add("VendaId");
-            dt.Columns.Add("ProdutoId");
-            dt.Columns.Add("Quantidade");
-            dt.Columns.Add("PrecoUnitario");
-            dt.Columns.Add("Subtotal");
-
-            if (leitura.HasRows)
-            {
-                while (leitura.Read())
-                {
-                    DataRow row = dt.NewRow();
-                    row["VendaId"] = leitura["VendaId"];
-                    row["ProdutoId"] = leitura["ProdutoId"];
-                    row["Quantidade"] = leitura["Quantidade"];
-                    row["PrecoUnitario"] = leitura["PrecoUnitario"];
-                    row["Subtotal"] = leitura["Subtotal"];
-                    dt.Rows.Add(row);
-                }
-            }
-
-            Conexao.Close();
-            return dt;
-        }
-
+        
         public DataTable PreencherGrid()
         {
             DataTable dataTable = new DataTable();
@@ -119,21 +88,7 @@ namespace Ecommerce.Classes
             return dt;
         }
 
-        public void Atualizar()
-        {
-            Conexao.Open();
-            string query = "UPDATE VendaProdutos SET Quantidade = @quantidade, PrecoUnitario = @precoUnitario WHERE VendaId = @vendaId AND ProdutoId = @produtoId";
-            MySqlCommand comando = new MySqlCommand(query, Conexao);
-
-            comando.Parameters.AddWithValue("@vendaId", VendaId);
-            comando.Parameters.AddWithValue("@produtoId", ProdutoId);
-            comando.Parameters.AddWithValue("@quantidade", Quantidade);
-            comando.Parameters.AddWithValue("@precoUnitario", PrecoUnitario);
-
-            comando.ExecuteNonQuery();
-            Conexao.Close();
-        }
-
+        
         public void Excluir()
         {
             string query = "DELETE FROM VendaProdutos WHERE VendaId = @vendaId AND ProdutoId = @produtoId";

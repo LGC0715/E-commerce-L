@@ -14,7 +14,7 @@ namespace Ecommerce   .Classes
     public class Usuarios
     {
 
-        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=AULA_DS;User Id=root;Password=");
+        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=Ecommerce;User Id=root;Password=");
         
         public int Id { get; set; }
         public string Login { get; set; }
@@ -24,7 +24,7 @@ namespace Ecommerce   .Classes
         public void Inserir()
         {
             Conexao.Open();
-            string query = "Insert into Usuarios (Login , Senha, Ativo) " +
+            string query = "Insert into Usuario (Login , Senha, Ativo) " +
                 "               Values (@login, @senha, @ativo) ";
             MySqlCommand comando = new MySqlCommand(query, Conexao);
 

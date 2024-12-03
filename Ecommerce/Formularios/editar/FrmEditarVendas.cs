@@ -15,41 +15,36 @@ namespace Ecommerce.Formularios.editar
 {
     public partial class FrmEditarVendas : Form
     {
-        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=ECOMMERCE;User Id=root;Password=");
+     
         public FrmEditarVendas(int id)
         {
             InitializeComponent();
+            Venda p = new Venda();
+            p.PesquisarPorId(id);
+            txtId.Text = p.Id.ToString();
+            txtDataVenda.Text = p.DataVenda.ToString();
+            txtTotal.Text = p.Total.ToString();
+            cbxformapag.SelectedItem = p.FormaPagamento;
+            txtDesconto.Text = p.Desconto.ToString();
+            txtStatusVenda.Text = p.StatusVenda.ToString();
+            p = null;
 
-            string query = "select Id, DataVenda, Total, FormaPagamento, Desconto. StatusVenda " +
-                "from Venda where Id = @id";
+            Produto u = new Produto();
+            dtgridProdutos.DataSource = u.PreencherGrid();
 
+            VendaProduto vp = new VendaProduto();
+            dtgridVendaProduto.DataSource = vp.PreencherGrid();
 
-            Conexao.Open();
+            //No grid de produtos, criar o cell double clique, pegar o Id do produto clicado
 
-            MySqlCommand comando = new MySqlCommand(query, Conexao);
+            //com o Id vc salva esse produto na tabela VendaProduto
 
-            //comando.Parameters.Add(new SqlParameter("@id", Id));
-
-             MySqlDataReader Leitura = comando.ExecuteReader();
-
-            if (Leitura.HasRows)
-            {
-                while (Leitura.Read())
-                {
-
-                    txtDataVenda.Text = Leitura[0].ToString();
-                    txtTotal.Text = Leitura[1].ToString();
-                    cbxformapag.Text = Leitura[2].ToString();
-                    txtDesconto.Text = Leitura[3].ToString();
-                    txtStatusVenda.Text = Leitura[4].ToString();
+            //ao finalizar vc usa o preenchergrid do VendaProduto
 
 
-                };
-
-            }
-
-            Conexao.Close();
+           
         }
+
 
         private void FrmEditarVendas_Load(object sender, EventArgs e)
         {
@@ -68,71 +63,45 @@ namespace Ecommerce.Formularios.editar
         {
             Venda p = new Venda();
             p.DataVenda = DateTime.Parse(txtDataVenda.Text);
-            p.Total = Convert.ToInt32(txtTotal);
+            p.Total = Convert.ToDecimal(txtTotal.Text); 
             p.FormaPagamento = cbxformapag.Text;
-            p.Desconto = Convert.ToInt32(txtDesconto); 
+            p.Desconto = Convert.ToInt32(txtDesconto.Text);
             p.StatusVenda = txtStatusVenda.Text;
-            p.Inserir();
-            MessageBox.Show("Sucesso", "Cadastrado com sucesso");
-            Close();
+
+            p.Editar();
+            p = null;
+            this.Close();
         }
 
-        private void txtStatusVenda_TextChanged(object sender, EventArgs e)
+        private void txtpesquisa_TextChanged(object sender, EventArgs e)
         {
-
+            Produto u = new Produto();
+            dtgridProdutos.DataSource = u.Pesquisar(txtpesquisa.Text);
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void dtgridProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
+                int id = Convert.ToInt32(
+                dtgridProdutos.Rows[e.RowIndex].Cells[0].Value);
 
+                VendaProduto p = new VendaProduto();
+                p.Nome = txtNome.Text;
+                p.Descricao = txtDescricao.Text;
+                p.PrecoUnitario = Convert.ToDecimal(txtPreco.Text);
+                p.Estoque = Convert.ToInt32(txtEstoque.Text);
+                p.Inserir();
+                MessageBox.Show("Sucesso", "Cadastrado com sucesso");
+                Close();
+
+         
+    }
+
+            
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDesconto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFormaPagamento_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtId_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTotal_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDataVenda_TextChanged(object sender, EventArgs e)
+        private void dtgridProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

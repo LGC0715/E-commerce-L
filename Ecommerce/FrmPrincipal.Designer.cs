@@ -34,13 +34,9 @@ namespace Ecommerce
             this.blaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pRODUTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vENDASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vENDADEPRODUTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.cADASTRARNOVOUSUARIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -50,8 +46,8 @@ namespace Ecommerce
             this.blaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -60,32 +56,31 @@ namespace Ecommerce
             this.blaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pRODUTOSToolStripMenuItem,
             this.vENDASToolStripMenuItem,
-            this.vENDADEPRODUTOSToolStripMenuItem,
             this.cADASTRARNOVOUSUARIOToolStripMenuItem});
             this.blaToolStripMenuItem.Name = "blaToolStripMenuItem";
-            this.blaToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
+            this.blaToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.blaToolStripMenuItem.Text = "E-COMMERCE";
             // 
             // pRODUTOSToolStripMenuItem
             // 
             this.pRODUTOSToolStripMenuItem.Name = "pRODUTOSToolStripMenuItem";
-            this.pRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(288, 26);
+            this.pRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.pRODUTOSToolStripMenuItem.Text = "PRODUTOS";
             this.pRODUTOSToolStripMenuItem.Click += new System.EventHandler(this.pRODUTOSToolStripMenuItem_Click);
             // 
             // vENDASToolStripMenuItem
             // 
             this.vENDASToolStripMenuItem.Name = "vENDASToolStripMenuItem";
-            this.vENDASToolStripMenuItem.Size = new System.Drawing.Size(288, 26);
+            this.vENDASToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.vENDASToolStripMenuItem.Text = "VENDAS";
             this.vENDASToolStripMenuItem.Click += new System.EventHandler(this.vENDASToolStripMenuItem_Click);
             // 
-            // vENDADEPRODUTOSToolStripMenuItem
+            // cADASTRARNOVOUSUARIOToolStripMenuItem
             // 
-            this.vENDADEPRODUTOSToolStripMenuItem.Name = "vENDADEPRODUTOSToolStripMenuItem";
-            this.vENDADEPRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(288, 26);
-            this.vENDADEPRODUTOSToolStripMenuItem.Text = "VENDA DE PRODUTOS";
-            this.vENDADEPRODUTOSToolStripMenuItem.Click += new System.EventHandler(this.vENDADEPRODUTOSToolStripMenuItem_Click);
+            this.cADASTRARNOVOUSUARIOToolStripMenuItem.Name = "cADASTRARNOVOUSUARIOToolStripMenuItem";
+            this.cADASTRARNOVOUSUARIOToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.cADASTRARNOVOUSUARIOToolStripMenuItem.Text = "CADASTRAR NOVO USUARIO";
+            this.cADASTRARNOVOUSUARIOToolStripMenuItem.Click += new System.EventHandler(this.cADASTRARNOVOUSUARIOToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -93,53 +88,20 @@ namespace Ecommerce
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(769, 224);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 176);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(765, 206);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "RESUMO:";
-            // 
-            // cADASTRARNOVOUSUARIOToolStripMenuItem
-            // 
-            this.cADASTRARNOVOUSUARIOToolStripMenuItem.Name = "cADASTRARNOVOUSUARIOToolStripMenuItem";
-            this.cADASTRARNOVOUSUARIOToolStripMenuItem.Size = new System.Drawing.Size(288, 26);
-            this.cADASTRARNOVOUSUARIOToolStripMenuItem.Text = "CADASTRAR NOVO USUARIO";
-            this.cADASTRARNOVOUSUARIOToolStripMenuItem.Click += new System.EventHandler(this.cADASTRARNOVOUSUARIOToolStripMenuItem_Click);
-            // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Ecommerce.Properties.Resources.tela_principal;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1067, 521);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(800, 423);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmPrincipal";
             this.Text = " ";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,9 +114,6 @@ namespace Ecommerce
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem pRODUTOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vENDASToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vENDADEPRODUTOSToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem cADASTRARNOVOUSUARIOToolStripMenuItem;
     }
 }

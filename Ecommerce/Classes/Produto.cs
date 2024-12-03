@@ -35,6 +35,8 @@ namespace Ecommerce.Classes
             comando.ExecuteNonQuery();
             Conexao.Close();
         }
+
+
         public DataTable PreencherGrid()
         {
             DataTable dataTable = new DataTable();
@@ -52,37 +54,37 @@ namespace Ecommerce.Classes
             Conexao.Close();
             return dataTable;
         }
-        public DataTable ObterProdutos()
-        {
-            DataTable dt = new DataTable();
-            Conexao.Open();
-            string query = "SELECT Id, Nome, Descricao, PrecoUnitario, Estoque FROM Produto ORDER BY Id DESC";
-            MySqlCommand comando = new MySqlCommand(query, Conexao);
-            MySqlDataReader leitura = comando.ExecuteReader();
+        //public DataTable ObterProdutos()
+        //{
+        //    DataTable dt = new DataTable();
+        //    Conexao.Open();
+        //    string query = "SELECT Id, Nome, Descricao, PrecoUnitario, Estoque FROM Produto ORDER BY Id DESC";
+        //    MySqlCommand comando = new MySqlCommand(query, Conexao);
+        //    MySqlDataReader leitura = comando.ExecuteReader();
 
-            foreach (var propriedade in typeof(Produto).GetProperties())
-            {
-                dt.Columns.Add(propriedade.Name);
-            }
+        //    foreach (var propriedade in typeof(Produto).GetProperties())
+        //    {
+        //        dt.Columns.Add(propriedade.Name);
+        //    }
 
-            if (leitura.HasRows)
-            {
-                while (leitura.Read())
-                {
-                    Produto p = new Produto
-                    {
-                        Id = Convert.ToInt32(leitura["Id"]),
-                        Nome = leitura["Nome"].ToString(),
-                        Descricao = leitura["Descricao"].ToString(),
-                        PrecoUnitario = decimal.Parse(leitura["PrecoUnitario"].ToString()),
-                        Estoque = Convert.ToInt32(leitura["Estoque"])
-                    };
-                }
-            }
+        //    if (leitura.HasRows)
+        //    {
+        //        while (leitura.Read())
+        //        {
+        //            Produto p = new Produto
+        //            {
+        //                Id = Convert.ToInt32(leitura["Id"]),
+        //                Nome = leitura["Nome"].ToString(),
+        //                Descricao = leitura["Descricao"].ToString(),
+        //                PrecoUnitario = decimal.Parse(leitura["PrecoUnitario"].ToString()),
+        //                Estoque = Convert.ToInt32(leitura["Estoque"])
+        //            };
+        //        }
+        //    }
 
-            Conexao.Close();
-            return dt;
-        }
+        //    Conexao.Close();
+        //    return dt;
+        //}
        
         public DataTable Pesquisar(string pesquisa)
         {
@@ -91,35 +93,18 @@ namespace Ecommerce.Classes
 
             string query = string.IsNullOrEmpty(pesquisa)
                 ? "SELECT Id, Nome, Descricao, PrecoUnitario, Estoque FROM Produto ORDER BY Id DESC"
-                : "SELECT Id, Nome, Descricao, PrecoUnitario, Estoque FROM Produto WHERE Nome LIKE @pesquisa ORDER BY Id DESC";
+                : "SELECT Id, Nome, Descricao, PrecoUnitario, Estoque FROM Produto WHERE Nome LIKE '%"+pesquisa+"%' ORDER BY Id DESC";
 
-            MySqlCommand comando = new MySqlCommand(query, Conexao);
-            if (!string.IsNullOrEmpty(pesquisa))
-                comando.Parameters.Add(new MySqlParameter("@pesquisa", "%" + pesquisa + "%"));
-
-            MySqlDataReader leitura = comando.ExecuteReader();
-
-            foreach (var propriedade in typeof(Produto).GetProperties())
+          
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
+            try
             {
-                dt.Columns.Add(propriedade.Name);
+                adapter.Fill(dt);
             }
-
-            if (leitura.HasRows)
+            catch (Exception ex)
             {
-                while (leitura.Read())
-                {
-                    Produto p = new Produto
-                    {
-                        Id = Convert.ToInt32(leitura["Id"]),
-                        Nome = leitura["Nome"].ToString(),
-                        Descricao = leitura["Descricao"].ToString(),
-                        PrecoUnitario = decimal.Parse(leitura["PrecoUnitario"].ToString()),
-                        Estoque = Convert.ToInt32(leitura["Estoque"])
-                    };
-                   
-                }
+                MessageBox.Show("Erro ao acessar os dados para preencher grid: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             Conexao.Close();
             return dt;
         }
@@ -138,7 +123,7 @@ namespace Ecommerce.Classes
             
             if (resposta == 1)
             {
-                MessageBox.Show("Usuário Atualizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Produto Atualizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

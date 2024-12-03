@@ -69,5 +69,10 @@ namespace Ecommerce.Formularios
             d.FormClosed += Fechou_Produto_FormClosed;
             d.ShowDialog();
         }
+
+        private void dtGridProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

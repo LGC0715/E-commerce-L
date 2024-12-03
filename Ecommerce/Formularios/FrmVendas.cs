@@ -9,9 +9,7 @@ namespace Ecommerce.Formularios
 {
     public partial class FrmVendas : Form
     {
-        DataTable dados;
-        Venda dao = new Venda();
-
+       
         public FrmVendas()
         {
             InitializeComponent();
@@ -39,8 +37,8 @@ namespace Ecommerce.Formularios
         // Evento para pesquisar vendas ao digitar na caixa de texto
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
-            // Pesquisar pelo texto fornecido
-            dtGridVenda.DataSource = dao.Pesquisar(txtpesquisa.Text); 
+            Venda u = new Venda();
+            dtGridVenda.DataSource = u.Pesquisar(txtpesquisa.Text);
         }
 
         // Evento para abrir a edição de vendas ao clicar duas vezes em uma linha

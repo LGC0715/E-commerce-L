@@ -13,8 +13,8 @@ namespace Ecommerce.Classes
 {
     public class Venda
     {
-       
 
+        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=ECOMMERCE;User Id=root;Password=");
         public int Id { get; set; }
         public DateTime DataVenda { get; set; }
         public decimal Total { get; set; }
@@ -25,7 +25,7 @@ namespace Ecommerce.Classes
 
 
 
-        private MySqlConnection Conexao = new MySqlConnection("Server=localhost;Database=ECOMMERCE;User Id=root;Password=");
+        
 
 
         public void Inserir()
@@ -51,8 +51,31 @@ namespace Ecommerce.Classes
             comando.ExecuteNonQuery();
             Conexao.Close();
         }
+        public void Editar()
+        {
+            Conexao.Open();
+            string query = "UPDATE Venda SET DataVenda = @datavenda, Total = @total, FormaPagamento = @formapagamento, Desconto = @desconto, StatusVenda = @StausVenda WHERE Id = @id";
+            MySqlCommand comando = new MySqlCommand(query, Conexao);
+            comando.Parameters.Add(new MySqlParameter("@id", Id));
+            comando.Parameters.Add(new MySqlParameter("@datavenda", DataVenda));
+            comando.Parameters.Add(new MySqlParameter("@total", Total));
+            comando.Parameters.Add(new MySqlParameter("@formapagamento", FormaPagamento));
+            comando.Parameters.Add(new MySqlParameter("@desconto", Desconto));
+            comando.Parameters.Add(new MySqlParameter("@statusvenda", StatusVenda));
+            int resposta = comando.ExecuteNonQuery();
 
-        
+            if (resposta == 1)
+            {
+                MessageBox.Show("Venda Atualizada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Erro ao atualizar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Conexao.Close();
+        }
+
+
         public DataTable PreencherGrid()
         {
             DataTable dataTable = new DataTable();
@@ -73,42 +96,27 @@ namespace Ecommerce.Classes
             return dataTable;
         }
 
+        
+
         public DataTable Pesquisar(string pesquisa)
         {
             DataTable dt = new DataTable();
             Conexao.Open();
 
             string query = string.IsNullOrEmpty(pesquisa)
-                ? "SELECT Id, DataVenda, Descricao, Total, FormaPagamento, Desconto, StatusVenda  FROM Venda ORDER BY Id DESC"
-                : "SELECT Id, DataVenda, Descricao, Total, FormaPagamento, Desconto, StatusVenda FROM Venda WHERE Nome LIKE @pesquisa ORDER BY Id DESC";
+                ? "SELECT Id, DataVenda, Total, FormaPagamento, Desconto, StatusVenda FROM Venda ORDER BY Id DESC"
+                : "SELECT Id, DataVenda, Total, FormaPagamento, Desconto, StatusVenda FROM Venda WHERE (DataVenda LIKE '%" + pesquisa + "%') OR (Id = "+pesquisa+") ORDER BY Id DESC";
 
-            MySqlCommand comando = new MySqlCommand(query, Conexao);
-            if (!string.IsNullOrEmpty(pesquisa))
-                comando.Parameters.Add(new MySqlParameter("@pesquisa", "%" + pesquisa + "%"));
 
-            MySqlDataReader leitura = comando.ExecuteReader();
-
-            foreach (var propriedade in typeof(Produto).GetProperties())
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
+            try
             {
-                dt.Columns.Add(propriedade.Name);
+                adapter.Fill(dt);
             }
-
-            if (leitura.HasRows)
+            catch (Exception ex)
             {
-                while (leitura.Read())
-                {
-                    Produto p = new Produto
-                    {
-                        Id = Convert.ToInt32(leitura["Id"]),
-                        Nome = leitura["Nome"].ToString(),
-                        Descricao = leitura["Descricao"].ToString(),
-                        PrecoUnitario = decimal.Parse(leitura["PrecoUnitario"].ToString()),
-                        Estoque = Convert.ToInt32(leitura["Estoque"])
-                    };
-
-                }
+                MessageBox.Show("Erro ao acessar os dados para preencher grid: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             Conexao.Close();
             return dt;
         }
@@ -149,7 +157,7 @@ namespace Ecommerce.Classes
         {
             DataTable dataTable = new DataTable();
             Conexao.Open();
-            string query = "SELECT Id, DataVenda, Total, FormaPagamento, Desconto, StatusVenda  FROM Usuarios Where Id = @id Order by Id desc";
+            string query = "SELECT Id, DataVenda, Total, FormaPagamento, Desconto, StatusVenda  FROM Venda Where Id = @id Order by Id desc";
             MySqlCommand Comando = new MySqlCommand(query, Conexao);
             Comando.Parameters.AddWithValue("@id", id);
             MySqlDataReader resultado = Comando.ExecuteReader();
@@ -158,10 +166,10 @@ namespace Ecommerce.Classes
             {
                 Id = resultado.GetInt32(0); 
                 DataVenda = resultado.GetDateTime(1);
-                Total = resultado.GetDecimal(1); // Tipo decimal (ou float, dependendo da precisão desejada)
-                FormaPagamento = resultado.GetString(2); // Tipo string (assumindo que é um texto, como "Cartão", "Dinheiro", etc.)
-                Desconto = resultado.GetDecimal(3); // Tipo decimal (ou float, dependendo da precisão desejada)
-                StatusVenda = resultado.GetString(4); // Tipo bool
+                Total = resultado.GetDecimal(2); // Tipo decimal (ou float, dependendo da precisão desejada)
+                FormaPagamento = resultado.GetString(3); // Tipo string (assumindo que é um texto, como "Cartão", "Dinheiro", etc.)
+                Desconto = resultado.GetDecimal(4); // Tipo decimal (ou float, dependendo da precisão desejada)
+                StatusVenda = resultado.GetString(5); // Tipo bool
 
             }
 
