@@ -166,6 +166,7 @@ namespace Ecommerce.Formularios.cadastrar
             this.Controls.Add(this.txtDataVenda);
             this.Name = "FrmCadastrarVendas";
             this.Text = "FrmCadastrarVendas";
+            this.Load += new System.EventHandler(this.FrmCadastrarVendas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

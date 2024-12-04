@@ -30,6 +30,11 @@ namespace Ecommerce.Formularios.cadastrar
             MessageBox.Show("Sucesso", "Cadastrado com sucesso");
             Close();
         }
+
+        private void FrmCadastrarVendas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 

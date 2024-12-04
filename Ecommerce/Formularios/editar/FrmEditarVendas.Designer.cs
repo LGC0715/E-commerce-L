@@ -55,7 +55,7 @@ namespace Ecommerce.Formularios.editar
             // btn_Excluir
             // 
             this.btn_Excluir.Location = new System.Drawing.Point(157, 425);
-            this.btn_Excluir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Excluir.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Excluir.Name = "btn_Excluir";
             this.btn_Excluir.Size = new System.Drawing.Size(107, 28);
             this.btn_Excluir.TabIndex = 73;
@@ -66,7 +66,7 @@ namespace Ecommerce.Formularios.editar
             // btn_Salvar
             // 
             this.btn_Salvar.Location = new System.Drawing.Point(43, 425);
-            this.btn_Salvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Salvar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Salvar.Name = "btn_Salvar";
             this.btn_Salvar.Size = new System.Drawing.Size(107, 28);
             this.btn_Salvar.TabIndex = 72;
@@ -184,7 +184,7 @@ namespace Ecommerce.Formularios.editar
             // 
             this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(67, 26);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(65, 22);
             this.txtId.TabIndex = 93;
@@ -192,7 +192,7 @@ namespace Ecommerce.Formularios.editar
             // txtpesquisa
             // 
             this.txtpesquisa.Location = new System.Drawing.Point(437, 38);
-            this.txtpesquisa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtpesquisa.Margin = new System.Windows.Forms.Padding(4);
             this.txtpesquisa.Name = "txtpesquisa";
             this.txtpesquisa.Size = new System.Drawing.Size(732, 22);
             this.txtpesquisa.TabIndex = 94;
@@ -202,7 +202,7 @@ namespace Ecommerce.Formularios.editar
             // 
             this.dtgridProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgridProdutos.Location = new System.Drawing.Point(437, 78);
-            this.dtgridProdutos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtgridProdutos.Margin = new System.Windows.Forms.Padding(4);
             this.dtgridProdutos.Name = "dtgridProdutos";
             this.dtgridProdutos.RowHeadersWidth = 51;
             this.dtgridProdutos.Size = new System.Drawing.Size(733, 185);
@@ -214,11 +214,12 @@ namespace Ecommerce.Formularios.editar
             // 
             this.dtgridVendaProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgridVendaProduto.Location = new System.Drawing.Point(437, 346);
-            this.dtgridVendaProduto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtgridVendaProduto.Margin = new System.Windows.Forms.Padding(4);
             this.dtgridVendaProduto.Name = "dtgridVendaProduto";
             this.dtgridVendaProduto.RowHeadersWidth = 51;
             this.dtgridVendaProduto.Size = new System.Drawing.Size(733, 251);
             this.dtgridVendaProduto.TabIndex = 96;
+            this.dtgridVendaProduto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgridVendaProduto_CellContentClick);
             this.dtgridVendaProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgridVendaProduto_CellDoubleClick);
             // 
             // label7

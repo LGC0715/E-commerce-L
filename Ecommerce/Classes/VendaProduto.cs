@@ -13,22 +13,68 @@ namespace Ecommerce.Classes
         public int ProdutoId { get; set; }
         public decimal PrecoUnitario { get; set; }
         public int Quantidade { get; set; }
-        public decimal Subtotal => Quantidade * PrecoUnitario;
+        public decimal Subtotal
+        {
+            get { return Quantidade * PrecoUnitario; }
+        }
 
         public void Inserir()
         {
-            Conexao.Open();
-            string query = "INSERT INTO VendaProduto (VendaId, ProdutoId, PrecoUnitario, Quantidade, Subtotal) " +
-                           "VALUES (@vendaId, @produtoId, @precoUnitario, @quantidade, @subtotal)";
-            MySqlCommand comando = new MySqlCommand(query, Conexao);
+            try
+            {
+                // Abrir a conexão com o banco de dados
+                Conexao.Open();
 
-            comando.Parameters.Add(new MySqlParameter("@vendaId", VendaId));
-            comando.Parameters.Add(new MySqlParameter("@produtoId", ProdutoId));
-            comando.Parameters.Add(new MySqlParameter("@precoUnitario", PrecoUnitario));
-            comando.Parameters.Add(new MySqlParameter("@quantidade", Quantidade));
-            comando.Parameters.Add(new MySqlParameter("@subtotal", Subtotal));
+                // Verificar se o registro já existe
+                string query = "SELECT COUNT(*) FROM VendaProduto WHERE VendaId = @vendaId AND ProdutoId = @produtoId";
+                MySqlCommand comando = new MySqlCommand(query, Conexao);
+                comando.Parameters.Add(new MySqlParameter("@vendaId", VendaId));
+                comando.Parameters.Add(new MySqlParameter("@produtoId", ProdutoId));
 
-            comando.ExecuteNonQuery();
+                int count = Convert.ToInt32(comando.ExecuteScalar());
+
+                if (count > 0)
+                {
+                    // Registro já existe, atualizar quantidade e subtotal
+                    string queryUpdate = "UPDATE VendaProduto " +
+                                         "SET Quantidade = Quantidade + @quantidade, " +
+                                         "Subtotal = Subtotal + @novoSubtotal " +
+                                         "WHERE VendaId = @vendaId AND ProdutoId = @produtoId";
+                    MySqlCommand comandoUpdate = new MySqlCommand(queryUpdate, Conexao);
+                    comandoUpdate.Parameters.Add(new MySqlParameter("@quantidade", Quantidade));
+                    comandoUpdate.Parameters.Add(new MySqlParameter("@novoSubtotal", Quantidade * PrecoUnitario));
+                    comandoUpdate.Parameters.Add(new MySqlParameter("@vendaId", VendaId));
+                    comandoUpdate.Parameters.Add(new MySqlParameter("@produtoId", ProdutoId));
+
+                    comandoUpdate.ExecuteNonQuery();
+                }
+                else
+                {
+                    // Registro não existe, inserir novo
+                    string queryInsert = "INSERT INTO VendaProduto (VendaId, ProdutoId, PrecoUnitario, Quantidade, Subtotal) " +
+                                         "VALUES (@vendaId, @produtoId, @precoUnitario, @quantidade, @subtotal)";
+                    MySqlCommand comandoInsert = new MySqlCommand(queryInsert, Conexao);
+                    comandoInsert.Parameters.Add(new MySqlParameter("@vendaId", VendaId));
+                    comandoInsert.Parameters.Add(new MySqlParameter("@produtoId", ProdutoId));
+                    comandoInsert.Parameters.Add(new MySqlParameter("@precoUnitario", PrecoUnitario));
+                    comandoInsert.Parameters.Add(new MySqlParameter("@quantidade", Quantidade));
+                    comandoInsert.Parameters.Add(new MySqlParameter("@subtotal", Quantidade * PrecoUnitario));
+
+                    comandoInsert.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Tratar exceção para evitar travamentos
+                throw new Exception("Erro ao inserir ou atualizar o registro: " + ex.Message, ex);
+            }
+            finally
+            {
+                // Garantir o fechamento da conexão
+                if (Conexao.State == System.Data.ConnectionState.Open)
+                    Conexao.Close();
+            }
+             
             Conexao.Close();
         }
 
@@ -111,7 +157,7 @@ namespace Ecommerce.Classes
             }
             else
             {
-                MessageBox.Show("Erro ao excluir", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Venda excluída com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             Conexao.Close();
         }

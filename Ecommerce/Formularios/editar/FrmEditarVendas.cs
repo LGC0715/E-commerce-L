@@ -91,22 +91,6 @@ namespace Ecommerce.Formularios.editar
                 int id = Convert.ToInt32(dtgridProdutos.Rows[e.RowIndex].Cells["Id"].Value);
                 string descricao = dtgridProdutos.Rows[e.RowIndex].Cells["Descricao"].Value.ToString();
                 decimal precoUnitario = Convert.ToDecimal(dtgridProdutos.Rows[e.RowIndex].Cells["PrecoUnitario"].Value);
-                int quantidade = 1; // Por padrão, 1 item é adicionado
-
-                // Cria o objeto de venda
-                VendaProduto p = new VendaProduto
-                {
-                    VendaId = int.Parse(txtId.Text), // Certifique-se de que txtId tem o ID da venda
-                    ProdutoId = id,
-                    PrecoUnitario = precoUnitario,
-                    Quantidade = quantidade
-                };
-
-                // Insere no banco de dados
-                p.Inserir();
-
-                // Mensagem de sucesso
-                MessageBox.Show("Produto adicionado com sucesso!", "Sucesso");
 
                 // Inicializa a lista se for nula
                 List<VendaProduto> listaVendaProduto;
@@ -121,14 +105,44 @@ namespace Ecommerce.Formularios.editar
                     listaVendaProduto = (List<VendaProduto>)dtgridVendaProduto.DataSource;
                 }
 
-                // Adiciona o novo produto à lista
-                listaVendaProduto.Add(p);
+                // Verifica se o produto já foi adicionado
+                VendaProduto produtoExistente = listaVendaProduto.FirstOrDefault(p => p.ProdutoId == id);
+
+                if (produtoExistente != null)
+                {
+                    // Incrementa a quantidade (Subtotal é recalculado automaticamente)
+                    produtoExistente.Quantidade += 1;
+
+                    // Atualiza o banco de dados (garanta que o método Atualizar exista na classe)
+                    produtoExistente.PreencherGrid();
+                }
+                else
+                {
+                    // Adiciona o novo produto
+                    VendaProduto novoProduto = new VendaProduto
+                    {
+                        VendaId = int.Parse(txtId.Text), // Certifique-se de que txtId tem o ID da venda
+                        ProdutoId = id,
+                        PrecoUnitario = precoUnitario,
+                        Quantidade = 1 // Quantidade inicial
+                    };
+
+                    // Insere no banco de dados
+                    novoProduto.Inserir();
+
+                    // Adiciona à lista
+                    listaVendaProduto.Add(novoProduto);
+                }
 
                 // Atualiza o DataGridView
                 dtgridVendaProduto.DataSource = null;
                 dtgridVendaProduto.DataSource = listaVendaProduto;
+
+                // Mensagem de sucesso
+                MessageBox.Show("Produto adicionado ou atualizado com sucesso!", "Sucesso");
             }
         }
+
 
 
 
@@ -163,11 +177,15 @@ namespace Ecommerce.Formularios.editar
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao excluir a venda: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        
                     }
                 }
             }
         }
 
+        private void dtgridVendaProduto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
