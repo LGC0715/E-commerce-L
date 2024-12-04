@@ -68,7 +68,8 @@ namespace Ecommerce.Formularios.editar
             p.Desconto = Convert.ToInt32(txtDesconto.Text);
             p.StatusVenda = txtStatusVenda.Text;
 
-            p.Editar();
+            VendaProduto vp = new VendaProduto();
+            dtgridVendaProduto.DataSource = vp.PreencherGrid();
             p = null;
             this.Close();
         }
