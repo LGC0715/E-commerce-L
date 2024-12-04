@@ -146,11 +146,11 @@
     <Compile Include="Formularios\editar\FrmEditarVendas.Designer.cs">
       <DependentUpon>FrmEditarVendas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmLogin.cs">
+    <Compile Include="Formularios\frmLoginncs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <Compile Include="Formularios\frmLoginncs.Designer.cs">
+      <DependentUpon>frmLoginncs.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmProdutos.cs">
       <SubType>Form</SubType>
@@ -196,8 +196,8 @@
     <EmbeddedResource Include="Formularios\editar\FrmEditarVendas.resx">
       <DependentUpon>FrmEditarVendas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\frmLoginncs.resx">
+      <DependentUpon>frmLoginncs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmProdutos.resx">
       <DependentUpon>FrmProdutos.cs</DependentUpon>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
-namespace Ecommerce   .Classes
+namespace Ecommerce.Classes
 {
     public class Usuarios
     {
@@ -103,7 +103,7 @@ namespace Ecommerce   .Classes
 
         public void Excluir()
         {
-            string query = "Delete from Usuarios WHERE  Id = @id";
+            string query = "Delete from Usuario WHERE  Id = @id";
             Conexao.Open();
             MySqlCommand comando = new MySqlCommand(query, Conexao);
             comando.Parameters.Add(new MySqlParameter("@id", Id));

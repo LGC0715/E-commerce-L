@@ -138,5 +138,35 @@ namespace Ecommerce.Formularios.editar
         {
 
         }
+
+        private void dtgridVendaProduto_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) 
+            {
+                // Obtém o ID da venda selecionada na grid
+                int vendaId = Convert.ToInt32(dtgridVendaProduto.Rows[e.RowIndex].Cells["VendaId"].Value);
+
+                // Confirmação do usuário para exclusão
+                DialogResult confirmacao = MessageBox.Show("Tem certeza que deseja excluir esta venda?", "Confirmação de Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirmacao == DialogResult.Yes)
+                {
+                    try
+                    {
+                        // Cria uma instância de VendaProduto e define o ID
+                        VendaProduto vendaProduto = new VendaProduto { VendaId = vendaId };
+
+                        // Chama o método de exclusão
+                        vendaProduto.Excluir();
+                        dtgridVendaProduto.DataSource = vendaProduto.PreencherGrid();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao excluir a venda: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
     }
 }

@@ -10,31 +10,21 @@ using System.Windows.Forms;
 using Ecommerce;
 using Ecommerce.Classes;
 
-namespace MapaSala
+namespace Ecommerce.Formularios
 {
-    public partial class frmLogin : Form
+    public partial class frmLoginncs : Form
     {
         private Login login;
-        public frmLogin()
+        public frmLoginncs()
         {
             InitializeComponent();
             login = new Login();
         }
-
-
         private void FecharForm(object sender, FormClosedEventArgs e)
         {
             Visible = true;
         }
-
-       
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void salvar_Click(object sender, EventArgs e)
+        private void btn_Entrar_Click(object sender, EventArgs e)
         {
             login.Usuario = txtLogin.Text;
             login.Senha = txtSenha.Text;
@@ -50,7 +40,5 @@ namespace MapaSala
                 MessageBox.Show("Usuário e senha inválidos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
-
     }
 }
