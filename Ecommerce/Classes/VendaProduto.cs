@@ -96,6 +96,28 @@ namespace Ecommerce.Classes
             return dataTable;
         }
 
+        public DataTable PreencherGrid(int id)
+        {
+            DataTable dataTable = new DataTable();
+            string query = @"SELECT vp.VendaId, p.Nome, vp.PrecoUnitario, vp.Quantidade, vp.Subtotal 
+                        
+                            FROM VendaProduto vp
+                            inner join Produto p on (p.Id = vp.ProdutoId )    
+                            where vp.VendaId = "+id+" ORDER BY vp.VendaId DESC";
+            Conexao.Open();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, Conexao);
+            try
+            {
+                adapter.Fill(dataTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao acessar os dados para preencher grid: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Conexao.Close();
+            return dataTable;
+        }
+
         public DataTable Pesquisar(string pesquisa)
         {
             DataTable dt = new DataTable();

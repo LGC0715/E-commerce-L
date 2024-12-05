@@ -33,7 +33,7 @@ namespace Ecommerce.Formularios.editar
             dtgridProdutos.DataSource = u.PreencherGrid();
 
             VendaProduto vp = new VendaProduto();
-            dtgridVendaProduto.DataSource = vp.PreencherGrid();
+            dtgridVendaProduto.DataSource = vp.PreencherGrid(id);
 
             //No grid de produtos, criar o cell double clique, pegar o Id do produto clicado
 
