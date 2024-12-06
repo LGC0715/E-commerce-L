@@ -29,49 +29,51 @@
         private void InitializeComponent()
         {
             this.btn_Entrar = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.txtLogin = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn_Entrar
             // 
-            this.btn_Entrar.Location = new System.Drawing.Point(72, 298);
-            this.btn_Entrar.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_Entrar.Location = new System.Drawing.Point(96, 367);
+            this.btn_Entrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Entrar.Name = "btn_Entrar";
-            this.btn_Entrar.Size = new System.Drawing.Size(103, 26);
+            this.btn_Entrar.Size = new System.Drawing.Size(137, 32);
             this.btn_Entrar.TabIndex = 51;
             this.btn_Entrar.Text = "Entrar";
             this.btn_Entrar.UseVisualStyleBackColor = true;
             this.btn_Entrar.Click += new System.EventHandler(this.btn_Entrar_Click);
             // 
-            // textBox2
+            // txtSenha
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBox2.Location = new System.Drawing.Point(21, 243);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(174, 20);
-            this.textBox2.TabIndex = 50;
+            this.txtSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtSenha.Location = new System.Drawing.Point(28, 299);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(231, 22);
+            this.txtSenha.TabIndex = 50;
             // 
-            // textBox1
+            // txtLogin
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBox1.Location = new System.Drawing.Point(21, 161);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 20);
-            this.textBox1.TabIndex = 49;
+            this.txtLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtLogin.Location = new System.Drawing.Point(28, 198);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(231, 22);
+            this.txtLogin.TabIndex = 49;
             // 
             // frmLoginncs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Ecommerce.Properties.Resources._4;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(248, 366);
+            this.ClientSize = new System.Drawing.Size(331, 450);
             this.Controls.Add(this.btn_Entrar);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSenha);
+            this.Controls.Add(this.txtLogin);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmLoginncs";
             this.Text = "frmLoginncs";
             this.ResumeLayout(false);
@@ -82,7 +84,7 @@
         #endregion
 
         private System.Windows.Forms.Button btn_Entrar;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.TextBox txtLogin;
     }
 }
