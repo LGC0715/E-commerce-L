@@ -33,15 +33,14 @@ namespace Ecommerce.Formularios
             this.label4 = new System.Windows.Forms.Label();
             this.txtpesquisa = new System.Windows.Forms.TextBox();
             this.dtGridProdutos = new System.Windows.Forms.DataGridView();
-            this.txtId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridProdutos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnadd_produto
             // 
-            this.btnadd_produto.Location = new System.Drawing.Point(25, 13);
+            this.btnadd_produto.Location = new System.Drawing.Point(634, 103);
             this.btnadd_produto.Name = "btnadd_produto";
-            this.btnadd_produto.Size = new System.Drawing.Size(168, 23);
+            this.btnadd_produto.Size = new System.Drawing.Size(116, 23);
             this.btnadd_produto.TabIndex = 19;
             this.btnadd_produto.Text = "Cadastrar Produtos";
             this.btnadd_produto.UseVisualStyleBackColor = true;
@@ -59,10 +58,11 @@ namespace Ecommerce.Formularios
             // 
             // txtpesquisa
             // 
-            this.txtpesquisa.Location = new System.Drawing.Point(475, 18);
-            this.txtpesquisa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtpesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpesquisa.Location = new System.Drawing.Point(373, 48);
+            this.txtpesquisa.Margin = new System.Windows.Forms.Padding(2);
             this.txtpesquisa.Name = "txtpesquisa";
-            this.txtpesquisa.Size = new System.Drawing.Size(297, 20);
+            this.txtpesquisa.Size = new System.Drawing.Size(377, 26);
             this.txtpesquisa.TabIndex = 17;
             this.txtpesquisa.TextChanged += new System.EventHandler(this.txtpesquisa_TextChanged);
             // 
@@ -71,37 +71,30 @@ namespace Ecommerce.Formularios
             this.dtGridProdutos.AllowUserToAddRows = false;
             this.dtGridProdutos.AllowUserToDeleteRows = false;
             this.dtGridProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtGridProdutos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtGridProdutos.BackgroundColor = System.Drawing.Color.White;
             this.dtGridProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridProdutos.Location = new System.Drawing.Point(15, 64);
+            this.dtGridProdutos.Location = new System.Drawing.Point(25, 149);
             this.dtGridProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dtGridProdutos.Name = "dtGridProdutos";
             this.dtGridProdutos.ReadOnly = true;
             this.dtGridProdutos.RowHeadersWidth = 51;
-            this.dtGridProdutos.Size = new System.Drawing.Size(770, 400);
+            this.dtGridProdutos.Size = new System.Drawing.Size(739, 327);
             this.dtGridProdutos.TabIndex = 16;
             this.dtGridProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridProdutos_CellContentClick);
             this.dtGridProdutos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridProdutos_CellDoubleClick);
-            // 
-            // txtId
-            // 
-            this.txtId.AutoSize = true;
-            this.txtId.Location = new System.Drawing.Point(416, 23);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(56, 13);
-            this.txtId.TabIndex = 68;
-            this.txtId.Text = "Pesquisar:";
             // 
             // FrmProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Ecommerce.Properties.Resources._3;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 488);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnadd_produto);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtpesquisa);
             this.Controls.Add(this.dtGridProdutos);
+            this.DoubleBuffered = true;
             this.Name = "FrmProdutos";
             this.Text = "FormProdutos";
             ((System.ComponentModel.ISupportInitialize)(this.dtGridProdutos)).EndInit();
@@ -116,6 +109,5 @@ namespace Ecommerce.Formularios
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtpesquisa;
         private System.Windows.Forms.DataGridView dtGridProdutos;
-        private System.Windows.Forms.Label txtId;
     }
 }

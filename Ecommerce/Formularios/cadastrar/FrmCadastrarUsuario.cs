@@ -29,5 +29,10 @@ namespace Ecommerce.Formularios.cadastrar
             MessageBox.Show("Sucesso", "Cadastrado com sucesso");
             Close();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

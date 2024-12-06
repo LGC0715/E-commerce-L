@@ -44,5 +44,10 @@ namespace Ecommerce.Formularios.editar
             usuarios.Excluir();
             this.Close();
         }
+
+        private void txtLogin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

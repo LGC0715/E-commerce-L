@@ -31,15 +31,14 @@
             this.btn_Entrar = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtSenha = new System.Windows.Forms.Label();
-            this.txtLogin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Entrar
             // 
-            this.btn_Entrar.Location = new System.Drawing.Point(61, 288);
+            this.btn_Entrar.Location = new System.Drawing.Point(72, 298);
+            this.btn_Entrar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Entrar.Name = "btn_Entrar";
-            this.btn_Entrar.Size = new System.Drawing.Size(158, 33);
+            this.btn_Entrar.Size = new System.Drawing.Size(103, 26);
             this.btn_Entrar.TabIndex = 51;
             this.btn_Entrar.Text = "Entrar";
             this.btn_Entrar.UseVisualStyleBackColor = true;
@@ -48,53 +47,31 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBox2.Location = new System.Drawing.Point(58, 235);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Location = new System.Drawing.Point(21, 243);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(173, 22);
+            this.textBox2.Size = new System.Drawing.Size(174, 20);
             this.textBox2.TabIndex = 50;
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBox1.Location = new System.Drawing.Point(58, 145);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Location = new System.Drawing.Point(21, 161);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 22);
+            this.textBox1.Size = new System.Drawing.Size(174, 20);
             this.textBox1.TabIndex = 49;
-            // 
-            // txtSenha
-            // 
-            this.txtSenha.AutoSize = true;
-            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.Location = new System.Drawing.Point(52, 207);
-            this.txtSenha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(81, 25);
-            this.txtSenha.TabIndex = 48;
-            this.txtSenha.Text = "SENHA";
-            // 
-            // txtLogin
-            // 
-            this.txtLogin.AutoSize = true;
-            this.txtLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogin.Location = new System.Drawing.Point(52, 117);
-            this.txtLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(73, 25);
-            this.txtLogin.TabIndex = 47;
-            this.txtLogin.Text = "LOGIN";
             // 
             // frmLoginncs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::Ecommerce.Properties.Resources._4;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(248, 366);
             this.Controls.Add(this.btn_Entrar);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtSenha);
-            this.Controls.Add(this.txtLogin);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmLoginncs";
             this.Text = "frmLoginncs";
             this.ResumeLayout(false);
@@ -107,7 +84,5 @@
         private System.Windows.Forms.Button btn_Entrar;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label txtSenha;
-        private System.Windows.Forms.Label txtLogin;
     }
 }
