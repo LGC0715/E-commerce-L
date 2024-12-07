@@ -75,7 +75,9 @@
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmLoginncs";
-            this.Text = "frmLoginncs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "LOGIN";
+            this.Load += new System.EventHandler(this.frmLoginncs_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

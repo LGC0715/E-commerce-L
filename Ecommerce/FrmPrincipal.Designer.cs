@@ -46,8 +46,8 @@ namespace Ecommerce
             this.blaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -58,27 +58,27 @@ namespace Ecommerce
             this.vENDASToolStripMenuItem,
             this.cADASTRARNOVOUSUARIOToolStripMenuItem});
             this.blaToolStripMenuItem.Name = "blaToolStripMenuItem";
-            this.blaToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.blaToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
             this.blaToolStripMenuItem.Text = "E-COMMERCE";
             // 
             // pRODUTOSToolStripMenuItem
             // 
             this.pRODUTOSToolStripMenuItem.Name = "pRODUTOSToolStripMenuItem";
-            this.pRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.pRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(288, 26);
             this.pRODUTOSToolStripMenuItem.Text = "PRODUTOS";
             this.pRODUTOSToolStripMenuItem.Click += new System.EventHandler(this.pRODUTOSToolStripMenuItem_Click);
             // 
             // vENDASToolStripMenuItem
             // 
             this.vENDASToolStripMenuItem.Name = "vENDASToolStripMenuItem";
-            this.vENDASToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.vENDASToolStripMenuItem.Size = new System.Drawing.Size(288, 26);
             this.vENDASToolStripMenuItem.Text = "VENDAS";
             this.vENDASToolStripMenuItem.Click += new System.EventHandler(this.vENDASToolStripMenuItem_Click);
             // 
             // cADASTRARNOVOUSUARIOToolStripMenuItem
             // 
             this.cADASTRARNOVOUSUARIOToolStripMenuItem.Name = "cADASTRARNOVOUSUARIOToolStripMenuItem";
-            this.cADASTRARNOVOUSUARIOToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.cADASTRARNOVOUSUARIOToolStripMenuItem.Size = new System.Drawing.Size(288, 26);
             this.cADASTRARNOVOUSUARIOToolStripMenuItem.Text = "CADASTRAR NOVO USUARIO";
             this.cADASTRARNOVOUSUARIOToolStripMenuItem.Click += new System.EventHandler(this.cADASTRARNOVOUSUARIOToolStripMenuItem_Click);
             // 
@@ -90,15 +90,20 @@ namespace Ecommerce
             // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackgroundImage = global::Ecommerce.Properties.Resources.tela_principal;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 423);
+            this.ClientSize = new System.Drawing.Size(1067, 521);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmPrincipal";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

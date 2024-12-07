@@ -38,33 +38,37 @@
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(38, 93);
+            this.txtLogin.Location = new System.Drawing.Point(51, 114);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(4);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(186, 20);
+            this.txtLogin.Size = new System.Drawing.Size(247, 22);
             this.txtLogin.TabIndex = 1;
             // 
             // chkAtivo
             // 
             this.chkAtivo.AutoSize = true;
-            this.chkAtivo.Location = new System.Drawing.Point(87, 160);
+            this.chkAtivo.Location = new System.Drawing.Point(107, 204);
+            this.chkAtivo.Margin = new System.Windows.Forms.Padding(4);
             this.chkAtivo.Name = "chkAtivo";
-            this.chkAtivo.Size = new System.Drawing.Size(50, 17);
+            this.chkAtivo.Size = new System.Drawing.Size(59, 20);
             this.chkAtivo.TabIndex = 2;
             this.chkAtivo.Text = "Ativo";
             this.chkAtivo.UseVisualStyleBackColor = true;
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(38, 134);
+            this.txtSenha.Location = new System.Drawing.Point(51, 165);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(4);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(186, 20);
+            this.txtSenha.Size = new System.Drawing.Size(247, 22);
             this.txtSenha.TabIndex = 0;
             // 
             // btncadastro
             // 
-            this.btncadastro.Location = new System.Drawing.Point(50, 222);
+            this.btncadastro.Location = new System.Drawing.Point(67, 273);
+            this.btncadastro.Margin = new System.Windows.Forms.Padding(4);
             this.btncadastro.Name = "btncadastro";
-            this.btncadastro.Size = new System.Drawing.Size(130, 23);
+            this.btncadastro.Size = new System.Drawing.Size(173, 28);
             this.btncadastro.TabIndex = 4;
             this.btncadastro.Text = "Cadastrar";
             this.btncadastro.UseVisualStyleBackColor = true;
@@ -78,9 +82,11 @@
             this.groupBox1.Controls.Add(this.txtSenha);
             this.groupBox1.Controls.Add(this.chkAtivo);
             this.groupBox1.Controls.Add(this.txtLogin);
-            this.groupBox1.Location = new System.Drawing.Point(-1, -3);
+            this.groupBox1.Location = new System.Drawing.Point(-1, -4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(245, 371);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(327, 457);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro Usuarios";
@@ -88,13 +94,14 @@
             // 
             // FrmCadastrarUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(235, 366);
+            this.ClientSize = new System.Drawing.Size(313, 450);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmCadastrarUsuario";
-            this.Text = "FrmCadastrarUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "CADASTRAR USUARIOS";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

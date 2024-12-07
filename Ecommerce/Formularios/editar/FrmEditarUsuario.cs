@@ -21,7 +21,7 @@ namespace Ecommerce.Formularios.editar
             txtId.Text = usuarios.Id.ToString();
             txtLogin.Text = usuarios.Login;
             txtSenha.Text = usuarios.Senha;
-            chkAtivo.Checked = usuarios.Ativo;
+            
             usuarios = null;
         }
 
@@ -31,7 +31,7 @@ namespace Ecommerce.Formularios.editar
             usuarios.Id = Convert.ToInt32(txtId.Text);
             usuarios.Login = txtLogin.Text;
             usuarios.Senha = txtSenha.Text;
-            usuarios.Ativo = chkAtivo.Checked;
+            
             usuarios.Editar();
             usuarios = null;
             this.Close();

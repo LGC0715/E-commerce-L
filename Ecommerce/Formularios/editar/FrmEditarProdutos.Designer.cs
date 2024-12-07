@@ -40,43 +40,44 @@ namespace Ecommerce.Formularios.editar
             // 
             // txtEstoque
             // 
-            this.txtEstoque.Location = new System.Drawing.Point(31, 224);
-            this.txtEstoque.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtEstoque.Location = new System.Drawing.Point(41, 276);
+            this.txtEstoque.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtEstoque.Name = "txtEstoque";
-            this.txtEstoque.Size = new System.Drawing.Size(184, 20);
+            this.txtEstoque.Size = new System.Drawing.Size(244, 22);
             this.txtEstoque.TabIndex = 58;
             // 
             // txtPreco
             // 
-            this.txtPreco.Location = new System.Drawing.Point(31, 181);
-            this.txtPreco.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtPreco.Location = new System.Drawing.Point(41, 223);
+            this.txtPreco.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(184, 20);
+            this.txtPreco.Size = new System.Drawing.Size(244, 22);
             this.txtPreco.TabIndex = 56;
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(31, 140);
-            this.txtDescricao.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtDescricao.Location = new System.Drawing.Point(41, 172);
+            this.txtDescricao.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(184, 20);
+            this.txtDescricao.Size = new System.Drawing.Size(244, 22);
             this.txtDescricao.TabIndex = 51;
             this.txtDescricao.TextChanged += new System.EventHandler(this.txtDescricao_TextChanged);
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(31, 97);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtNome.Location = new System.Drawing.Point(41, 119);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(183, 20);
+            this.txtNome.Size = new System.Drawing.Size(243, 22);
             this.txtNome.TabIndex = 50;
             this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // btn_Excluir
             // 
-            this.btn_Excluir.Location = new System.Drawing.Point(124, 268);
+            this.btn_Excluir.Location = new System.Drawing.Point(165, 330);
+            this.btn_Excluir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Excluir.Name = "btn_Excluir";
-            this.btn_Excluir.Size = new System.Drawing.Size(91, 27);
+            this.btn_Excluir.Size = new System.Drawing.Size(121, 33);
             this.btn_Excluir.TabIndex = 61;
             this.btn_Excluir.Text = "Excluir";
             this.btn_Excluir.UseVisualStyleBackColor = true;
@@ -84,9 +85,10 @@ namespace Ecommerce.Formularios.editar
             // 
             // btn_Salvar
             // 
-            this.btn_Salvar.Location = new System.Drawing.Point(23, 268);
+            this.btn_Salvar.Location = new System.Drawing.Point(31, 330);
+            this.btn_Salvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Salvar.Name = "btn_Salvar";
-            this.btn_Salvar.Size = new System.Drawing.Size(95, 26);
+            this.btn_Salvar.Size = new System.Drawing.Size(127, 32);
             this.btn_Salvar.TabIndex = 60;
             this.btn_Salvar.Text = "Salvar";
             this.btn_Salvar.UseVisualStyleBackColor = true;
@@ -95,18 +97,19 @@ namespace Ecommerce.Formularios.editar
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(48, 53);
+            this.txtId.Location = new System.Drawing.Point(64, 65);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(89, 20);
+            this.txtId.Size = new System.Drawing.Size(117, 22);
             this.txtId.TabIndex = 62;
             // 
             // FrmEditarProdutos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Ecommerce.Properties.Resources._11;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(246, 366);
+            this.ClientSize = new System.Drawing.Size(328, 452);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.btn_Excluir);
             this.Controls.Add(this.btn_Salvar);
@@ -115,9 +118,10 @@ namespace Ecommerce.Formularios.editar
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.txtNome);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmEditarProdutos";
-            this.Text = "Editar Produtos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "EDITAR PRODUTOS";
             this.Load += new System.EventHandler(this.FrmEditarProdutos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -43,11 +43,12 @@ namespace Ecommerce.Formularios
             this.dtgridUsuarios1.BackgroundColor = System.Drawing.Color.White;
             this.dtgridUsuarios1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgridUsuarios1.GridColor = System.Drawing.Color.White;
-            this.dtgridUsuarios1.Location = new System.Drawing.Point(34, 153);
+            this.dtgridUsuarios1.Location = new System.Drawing.Point(45, 188);
+            this.dtgridUsuarios1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtgridUsuarios1.Name = "dtgridUsuarios1";
             this.dtgridUsuarios1.ReadOnly = true;
             this.dtgridUsuarios1.RowHeadersWidth = 51;
-            this.dtgridUsuarios1.Size = new System.Drawing.Size(712, 318);
+            this.dtgridUsuarios1.Size = new System.Drawing.Size(949, 391);
             this.dtgridUsuarios1.TabIndex = 5;
             this.dtgridUsuarios1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgridUsuarios1_CellContentClick);
             this.dtgridUsuarios1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgridUsuarios1_CellDoubleClick_1);
@@ -55,18 +56,20 @@ namespace Ecommerce.Formularios
             // txtPesquisar1
             // 
             this.txtPesquisar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisar1.Location = new System.Drawing.Point(361, 99);
+            this.txtPesquisar1.Location = new System.Drawing.Point(481, 122);
+            this.txtPesquisar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPesquisar1.Name = "txtPesquisar1";
-            this.txtPesquisar1.Size = new System.Drawing.Size(376, 24);
+            this.txtPesquisar1.Size = new System.Drawing.Size(500, 29);
             this.txtPesquisar1.TabIndex = 1;
             this.txtPesquisar1.TextChanged += new System.EventHandler(this.txtPesquisar1_TextChanged);
             // 
             // btnNovo1
             // 
             this.btnNovo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo1.Location = new System.Drawing.Point(48, 100);
+            this.btnNovo1.Location = new System.Drawing.Point(64, 123);
+            this.btnNovo1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNovo1.Name = "btnNovo1";
-            this.btnNovo1.Size = new System.Drawing.Size(107, 23);
+            this.btnNovo1.Size = new System.Drawing.Size(143, 28);
             this.btnNovo1.TabIndex = 0;
             this.btnNovo1.Text = "Novo Usuário";
             this.btnNovo1.UseVisualStyleBackColor = true;
@@ -74,19 +77,20 @@ namespace Ecommerce.Formularios
             // 
             // frmUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackgroundImage = global::Ecommerce.Properties.Resources._1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(782, 483);
+            this.ClientSize = new System.Drawing.Size(1043, 594);
             this.Controls.Add(this.dtgridUsuarios1);
             this.Controls.Add(this.btnNovo1);
             this.Controls.Add(this.txtPesquisar1);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registre um usuário";
+            this.Text = "USUÁRIOS";
             this.Load += new System.EventHandler(this.frmUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgridUsuarios1)).EndInit();
             this.ResumeLayout(false);

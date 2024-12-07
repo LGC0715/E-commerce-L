@@ -49,8 +49,10 @@
             this.groupBox1.Controls.Add(this.txtSenha);
             this.groupBox1.Controls.Add(this.txtLogin);
             this.groupBox1.Location = new System.Drawing.Point(1, -1);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(302, 544);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(403, 670);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Editar Usuário";
@@ -58,16 +60,18 @@
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(74, 117);
+            this.txtId.Location = new System.Drawing.Point(99, 144);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(95, 20);
+            this.txtId.Size = new System.Drawing.Size(125, 22);
             this.txtId.TabIndex = 13;
             // 
             // btn_excluir
             // 
-            this.btn_excluir.Location = new System.Drawing.Point(163, 362);
+            this.btn_excluir.Location = new System.Drawing.Point(217, 446);
+            this.btn_excluir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_excluir.Name = "btn_excluir";
-            this.btn_excluir.Size = new System.Drawing.Size(115, 36);
+            this.btn_excluir.Size = new System.Drawing.Size(153, 44);
             this.btn_excluir.TabIndex = 12;
             this.btn_excluir.Text = "Excluir";
             this.btn_excluir.UseVisualStyleBackColor = true;
@@ -75,9 +79,10 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(43, 363);
+            this.btnSalvar.Location = new System.Drawing.Point(57, 447);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(114, 35);
+            this.btnSalvar.Size = new System.Drawing.Size(152, 43);
             this.btnSalvar.TabIndex = 9;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -86,37 +91,41 @@
             // chkAtivo
             // 
             this.chkAtivo.AutoSize = true;
-            this.chkAtivo.Location = new System.Drawing.Point(86, 284);
+            this.chkAtivo.Location = new System.Drawing.Point(150, 349);
+            this.chkAtivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkAtivo.Name = "chkAtivo";
-            this.chkAtivo.Size = new System.Drawing.Size(50, 17);
+            this.chkAtivo.Size = new System.Drawing.Size(59, 20);
             this.chkAtivo.TabIndex = 8;
             this.chkAtivo.Text = "Ativo";
             this.chkAtivo.UseVisualStyleBackColor = true;
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(53, 243);
+            this.txtSenha.Location = new System.Drawing.Point(71, 299);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(210, 20);
+            this.txtSenha.Size = new System.Drawing.Size(279, 22);
             this.txtSenha.TabIndex = 7;
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(53, 183);
+            this.txtLogin.Location = new System.Drawing.Point(71, 225);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(210, 20);
+            this.txtLogin.Size = new System.Drawing.Size(279, 22);
             this.txtLogin.TabIndex = 6;
             this.txtLogin.TextChanged += new System.EventHandler(this.txtLogin_TextChanged);
             // 
             // FrmEditarUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 540);
+            this.ClientSize = new System.Drawing.Size(407, 526);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmEditarUsuario";
-            this.Text = "FrmEditarUsuariocs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "EDITAR USUARIOS";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

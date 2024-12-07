@@ -40,5 +40,10 @@ namespace Ecommerce.Formularios
                 MessageBox.Show("Usuário e senha inválidos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void frmLoginncs_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
